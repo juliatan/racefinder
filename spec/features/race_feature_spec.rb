@@ -8,8 +8,10 @@ describe 'Map listing for race' do
   end
 
   # it 'should show the starting point'
+  # cannot be tested
 
   # it 'should show the finish point'
+  # cannot be tested
 
   # it 'can show a hotel'
 
