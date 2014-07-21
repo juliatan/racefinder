@@ -74,7 +74,7 @@ $(document).ready(function(){
       icon: "/assets/hotel_icon.png",
       infoWindow: {
         content: 
-          '<p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p><p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p>'
+          '<p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p><p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p>'
       }
     });
   }
