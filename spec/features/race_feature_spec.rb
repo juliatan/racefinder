@@ -13,14 +13,24 @@ describe 'Map listing for race' do
   # it 'should show the finish point'
   # cannot be tested
 
-  # it 'can show a hotel'
+  it 'can show a hotel', js: true do
+    visit '/races'
+    sleep 1
+    page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
+    expect(page).to have_content 'Mandala Hotel'
+  end
 
-  # it 'can show more than one hotel'
+  # cannot be tested
+
+  it 'can show more than one hotel', js: true do
+    visit '/races'
+    sleep 2
+    expect(page.evaluate_script("window.map.markers.length")).to eq 4
+  end
 
 end
 
 # describe 'Single hotel popup' do
-#   it 'shows the name of the hotel'
 
 #   it 'shows one picture of the hotel'
 
