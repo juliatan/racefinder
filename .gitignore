@@ -17,3 +17,6 @@
 
 # Ignore secrets
 /config/secrets.yml
+/app/assets/.DS_Store
+/app/assets/images/.DS_Store
+/app/assets/javascripts/.DS_Store
