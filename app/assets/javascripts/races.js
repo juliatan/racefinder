@@ -8,9 +8,9 @@ $(document).ready(function(){
       lng: 13.375434,
       rating: '4.3',
       price: '£205',
-      gym: 'Y',
-      wifi: 'Y',
-      breakfast: 'Y'
+      gym: 'Gym ✓',
+      wifi: 'Free Wifi ✓',
+      breakfast: 'Breakfast not included ✗'
     },
     {
       name: 'The Mandala Hotel',
@@ -19,9 +19,9 @@ $(document).ready(function(){
       lng: 13.3737,
       rating: '4.5',
       price: '£133',
-      gym: 'Y',
-      wifi: 'Y',
-      breakfast: 'Y'
+      gym: 'Gym ✓',
+      wifi: 'Free Wifi ✓',
+      breakfast: 'Breakfast included ✓'
     }
   ];
 
@@ -40,7 +40,7 @@ $(document).ready(function(){
         map.addMarker({
           lat: 52.51518,
           lng: 13.35938,
-          // icon: "/app/assets/javascripts/marker-pin-google.svg",
+          icon: "/assets/start_line_icon.png"
         });
       }
     }
@@ -50,13 +50,13 @@ $(document).ready(function(){
     lat: 52.51622,
     lng: 13.37573,
     title: 'Finish Line',
-    // icon: "marker-pin-google.svg",
+    icon: "/assets/finish_line_icon.png",
 
     // click: function(e) {
       // alert('You clicked in this marker');
     // }
     infoWindow: {
-      content: '<p>Roundabout</p>'
+      content: '<p>Finish Line</p>'
     }
   });
 
@@ -67,7 +67,12 @@ $(document).ready(function(){
     map.addMarker({
       lat: hotel.lat,
       lng: hotel.lng,
-      title: 'hotel'
+      title: 'hotel',
+      icon: "/assets/hotel_icon.png",
+      infoWindow: {
+        content: 
+          '<p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p>'
+      }
     });
   }
 })
