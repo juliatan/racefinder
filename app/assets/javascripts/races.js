@@ -31,6 +31,8 @@ $(document).ready(function(){
     lng: 0
   });
 
+  var iconOffset = 0.0015
+
   GMaps.geocode({
     address: 'Straße des 17. Juni 31, Berlin, Germany',
     callback: function(results, status) {
@@ -38,7 +40,7 @@ $(document).ready(function(){
         var latlng = results[0].geometry.location;
         map.setCenter(latlng.lat(), latlng.lng());
         map.addMarker({
-          lat: 52.51518,
+          lat: 52.51518 - iconOffset,
           lng: 13.35938,
           icon: "/assets/start_line_icon.png"
         });
@@ -47,7 +49,7 @@ $(document).ready(function(){
   });
 
   map.addMarker({
-    lat: 52.51622,
+    lat: 52.51622 - iconOffset,
     lng: 13.37573,
     title: 'Finish Line',
     icon: "/assets/finish_line_icon.png",
