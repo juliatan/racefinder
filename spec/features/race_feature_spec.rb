@@ -14,6 +14,7 @@ describe 'Map listing for race' do
   # cannot be tested
 
   # it 'can show a hotel'
+  # cannot be tested
 
   # it 'can show more than one hotel'
 

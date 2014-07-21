@@ -15,10 +15,17 @@ $(document).ready(function(){
         map.addMarker({
           lat: 52.51518,
           lng: 13.35938,
+          // icon: "/app/assets/javascripts/marker-pin-google.svg",
         });
       }
     }
   });
+
+//   map.addMarker({
+//     lat: latlng.lat(),
+//     lng: latlng.lng(),
+    // icon: "/images/mapicon.png"
+// });
 
   map.addMarker({
     lat: 52.51622,
@@ -37,16 +44,12 @@ $(document).ready(function(){
 
 })
 
-// var pos;
-// var marker;
-// for(var i = 0 ; i < 10 ; i++) {
-//   pos = new google.maps.LatLng(Math.floor(Math.random()*100), Math.floor(Math.random()*50));
-//   marker = new google.maps.Marker({
-//     position: pos, 
-//     map: map, 
-//     title: 'Title',
-//     icon: '/other/gmap/marker.gif'
-//   });
-//   var storyClick = new Function("event", "alert('Click on marker "+i+" ');");
-//   google.maps.event.addListener(marker, 'click', storyClick);
-// }
+json.hotelName 'The Ritz Carlton'
+json.hotelAddress 'Postdamer Platz 3, 10785 Berlin, Germany'
+json.hotelLat ''
+json.hotelLong ''
+json.hotelRating '4.3'
+json.hotelPrice '£205'
+json.hotelGym 'Y'
+json.hotelWifi 'Y'
+json.hotelBreakfast 'Y'
