@@ -10,7 +10,8 @@ $(document).ready(function(){
       price: '£205',
       gym: 'Gym ✓',
       wifi: 'Free Wifi ✓',
-      breakfast: 'Breakfast not included ✗'
+      breakfast: 'Breakfast not included ✗',
+      photo1: 'ritz_carlton_1.jpg'
     },
     {
       name: 'The Mandala Hotel',
@@ -21,7 +22,8 @@ $(document).ready(function(){
       price: '£133',
       gym: 'Gym ✓',
       wifi: 'Free Wifi ✓',
-      breakfast: 'Breakfast included ✓'
+      breakfast: 'Breakfast included ✓',
+      photo1: 'mandala_hotel_1.jpg'
     }
   ];
 
@@ -63,7 +65,6 @@ $(document).ready(function(){
   });
 
   for (var i = 0; i < hotels.length; i++) {
-    console.log('Heyyy');
     var hotel = hotels[i];
 
     map.addMarker({
@@ -73,7 +74,7 @@ $(document).ready(function(){
       icon: "/assets/hotel_icon.png",
       infoWindow: {
         content: 
-          '<p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p>'
+          '<p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p><p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p>'
       }
     });
   }

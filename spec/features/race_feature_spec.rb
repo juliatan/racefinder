@@ -28,11 +28,17 @@ describe 'Map listing for race' do
     expect(page.evaluate_script("window.map.markers.length")).to eq 4
   end
 
+  it 'shows one picture of the hotel', js: true do
+    visit '/races'
+    sleep 1
+    page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
+    expect(page).to have_css 'img.hotel-photo'
+  end
+
 end
 
 # describe 'Single hotel popup' do
 
-#   it 'shows one picture of the hotel'
 
 #   it 'can show more pictures of the hotel'
 
