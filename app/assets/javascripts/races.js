@@ -1,5 +1,30 @@
 $(document).ready(function(){
 
+  var hotels = [
+    {
+      name: 'The Ritz Carlton',
+      address: 'Postdamer Platz 3, 10785 Berlin, Germany',
+      lat: 52.51003,
+      lng: 13.375434,
+      rating: '4.3',
+      price: '£205',
+      gym: 'Y',
+      wifi: 'Y',
+      breakfast: 'Y'
+    },
+    {
+      name: 'The Mandala Hotel',
+      address: 'Postdamer Straße 3, 10785 Berlin, Germany',
+      lat: 52.5093,
+      lng: 13.3737,
+      rating: '4.5',
+      price: '£133',
+      gym: 'Y',
+      wifi: 'Y',
+      breakfast: 'Y'
+    }
+  ];
+
   var map = new GMaps({
     div: '#map',
     lat: 0,
@@ -21,12 +46,6 @@ $(document).ready(function(){
     }
   });
 
-//   map.addMarker({
-//     lat: latlng.lat(),
-//     lng: latlng.lng(),
-    // icon: "/images/mapicon.png"
-// });
-
   map.addMarker({
     lat: 52.51622,
     lng: 13.37573,
@@ -41,15 +60,14 @@ $(document).ready(function(){
     }
   });
 
+  for (var i = 0; i < hotels.length; i++) {
+    console.log('Heyyy');
+    var hotel = hotels[i];
 
+    map.addMarker({
+      lat: hotel.lat,
+      lng: hotel.lng,
+      title: 'hotel'
+    });
+  }
 })
-
-json.hotelName 'The Ritz Carlton'
-json.hotelAddress 'Postdamer Platz 3, 10785 Berlin, Germany'
-json.hotelLat ''
-json.hotelLong ''
-json.hotelRating '4.3'
-json.hotelPrice '£205'
-json.hotelGym 'Y'
-json.hotelWifi 'Y'
-json.hotelBreakfast 'Y'
