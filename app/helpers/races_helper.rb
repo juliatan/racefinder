@@ -1,3 +1,2 @@
 module RacesHelper
-
 end
