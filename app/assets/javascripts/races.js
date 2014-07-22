@@ -44,7 +44,7 @@ $(document).ready(function(){
         map.addMarker({
           lat: 52.51518 - iconOffset,
           lng: 13.35938,
-          icon: "/assets/start_line_icon.png"
+          icon: "/start_line_icon.png"
         });
       }
     }
@@ -54,7 +54,7 @@ $(document).ready(function(){
     lat: 52.51622 - iconOffset,
     lng: 13.37573,
     title: 'Finish Line',
-    icon: "/assets/finish_line_icon.png",
+    icon: "/finish_line_icon.png",
 
     // click: function(e) {
       // alert('You clicked in this marker');
@@ -64,22 +64,45 @@ $(document).ready(function(){
     }
   });
 
-  for (var i = 0; i < hotels.length; i++) {
-    var hotel = hotels[i];
+  hotels.forEach(function(hotel){
+    var route = map.getRoutes({
+      origin: [hotel.lat, hotel.lng], //hotel coordinates
+      destination: [52.51518, 13.35938], //start line coordinates
+      callback: function (e) {
+          var time = 0;
+          var distance = 0;
+          var legs = e.pop().legs;
 
-    map.addMarker({
-      lat: hotel.lat,
-      lng: hotel.lng,
-      title: 'hotel',
-      icon: "/assets/hotel_icon.png",
-      infoWindow: {
-        content: 
-          '<p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p><p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p>'
+          for (var i=0; i<legs.length; i++) {
+              time += legs[i].duration.value;
+              distance += legs[i].distance.value;
+          }
+          var minutesH = time/60;
+          var minutes = Math.round(minutesH*100)/100;
+          
+          var metres = distance/1000;
+          var km = Math.round(metres*100)/100;
+
+          hotel.minutes = minutes;
+          hotel.km = km;
+
+          map.addMarker({
+            lat: hotel.lat,
+            lng: hotel.lng,
+            title: 'hotel',
+            icon: "/hotel_icon.png",
+            infoWindow: {
+              content: 
+                '<p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p><p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p><p>'
+                + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+            }
+          });
       }
     });
-  }
+  })
+
+
 
   window.map = map;
-
 
 })
