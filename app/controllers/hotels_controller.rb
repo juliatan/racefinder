@@ -9,7 +9,5 @@ class HotelsController < ApplicationController
     data = open(url).read
 
     @hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
-
-    # render json: @index 
   end
 end
