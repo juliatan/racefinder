@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  console.log($("#map").data('race'));
   var hotels = [
     {
       name: 'The Ritz Carlton',
@@ -102,7 +103,5 @@ $(document).ready(function(){
   })
 
 
-
   window.map = map;
-
 })
