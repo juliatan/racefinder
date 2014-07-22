@@ -1,7 +1,4 @@
 $(document).ready(function(){
-  var startingPoint = {
-      address: 'Straße des 17. Juni 31, Berlin, Germany'
-    }
 
   var hotels = [
     {
@@ -39,7 +36,7 @@ $(document).ready(function(){
   var iconOffset = 0.0015
 
   GMaps.geocode({
-    address: startingPoint.address,
+    address: 'Straße des 17. Juni 31, Berlin, Germany',
     callback: function(results, status) {
       if (status == 'OK') {
         var latlng = results[0].geometry.location;
