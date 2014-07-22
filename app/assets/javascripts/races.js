@@ -44,7 +44,7 @@ $(document).ready(function(){
         map.addMarker({
           lat: 52.51518 - iconOffset,
           lng: 13.35938,
-          icon: "/assets/start_line_icon.png"
+          icon: "/start_line_icon.png"
         });
       }
     }
@@ -54,7 +54,7 @@ $(document).ready(function(){
     lat: 52.51622 - iconOffset,
     lng: 13.37573,
     title: 'Finish Line',
-    icon: "/assets/finish_line_icon.png",
+    icon: "/finish_line_icon.png",
 
     // click: function(e) {
       // alert('You clicked in this marker');
@@ -71,7 +71,7 @@ $(document).ready(function(){
       lat: hotel.lat,
       lng: hotel.lng,
       title: 'hotel',
-      icon: "/assets/hotel_icon.png",
+      icon: "/hotel_icon.png",
       infoWindow: {
         content: 
           '<p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p><p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>' + hotel.rating + '</p><p>'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p>'
