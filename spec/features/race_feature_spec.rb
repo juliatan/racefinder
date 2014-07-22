@@ -15,8 +15,8 @@ describe 'Map listing for race' do
 
   it 'can show a hotel', js: true do
     visit '/races'
-    sleep 1
-    page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
+    sleep 2
+    page.execute_script("google.maps.event.trigger(window.map.markers[3], 'click');")
     expect(page).to have_content 'Mandala Hotel'
   end
 
