@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   if($('#map').length > 0) {
 
-    $.get('/hotels.json', function(json){
+    $.get('/hotels.json?nights=' + $('#map').data('nights'), function(json){
 
       var hotels = json;
 
