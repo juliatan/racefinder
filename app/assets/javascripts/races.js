@@ -97,6 +97,9 @@ $(document).ready(function(){
             infoWindow: {
               content: 
                 '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
+                '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
+                '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
+                '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 
                 '"></p><p>' + hotel.name + 
                 '</p><p>' + hotel.address + 
                 '</p><p>Rating: ' + hotel.rating + 
