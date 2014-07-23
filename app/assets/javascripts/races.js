@@ -68,6 +68,12 @@ $(document).ready(function(){
             hotel.minutes = minutes;
             hotel.km = km;
 
+            hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
+
+            hotel.numberOfNights = $('#map').data('nights');
+            hotel.totalPrice = hotel.price * hotel.numberOfNights;
+            hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
+
             map.addMarker({
               lat: hotel.lat,
               lng: hotel.long,
@@ -82,8 +88,9 @@ $(document).ready(function(){
                 '"></p><p>' + hotel.name + 
                 '</p><p>' + hotel.address + 
                 '</p><p>Rating: ' + hotel.rating + 
-                '</p><p>Price per night: £'+ hotel.price + 
-                '</p><p>' + hotel.gym + 
+                '</p><p>Price per night: £'+ hotel.priceFormatted + 
+                '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
+                ' nights</p><p>' + hotel.gym + 
                 '</p><p>' + hotel.breakfast + 
                 '</p><p>' + hotel.wifi + 
                 '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
