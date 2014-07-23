@@ -1,5 +1,5 @@
-# require 'json'
-# require 'open-uri'
+require 'json'
+require 'open-uri'
 
 class HotelsController < ApplicationController
   def index
