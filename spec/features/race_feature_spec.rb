@@ -17,7 +17,7 @@ describe 'Map listing for race' do
     visit '/races'
     sleep 2
     page.execute_script("google.maps.event.trigger(window.map.markers[3], 'click');")
-    expect(page).to have_content 'Mandala Hotel'
+    expect(page).to have_content 'The Westin Grand'
   end
 
   # cannot be tested
@@ -25,7 +25,7 @@ describe 'Map listing for race' do
   it 'can show more than one hotel', js: true do
     visit '/races'
     sleep 2
-    expect(page.evaluate_script("window.map.markers.length")).to eq 4
+    expect(page.evaluate_script("window.map.markers.length")).to eq 12
   end
 
   it 'shows one picture of the hotel', js: true do
