@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'launchy'
 
 describe 'Map listing for race' do
 
@@ -19,8 +20,6 @@ describe 'Map listing for race' do
     page.execute_script("google.maps.event.trigger(window.map.markers[3], 'click');")
     expect(page).to have_content 'The Westin Grand'
   end
-
-  # cannot be tested
 
   it 'can show more than one hotel', js: true do
     visit '/races'

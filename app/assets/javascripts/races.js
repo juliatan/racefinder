@@ -97,5 +97,4 @@ $(document).ready(function(){
     
     window.map = map;
   }
-
 })

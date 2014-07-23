@@ -19,4 +19,13 @@ describe 'Homepage' do
   
   it 'can select one budget range from dropdown menu'
 
+  context 'number of nights' do
+    it 'displays one night in the dropdown' do
+      visit '/'
+      select '1 night', from: 'nights'
+      click_button 'Search'
+      expect(current_path).to eq races_path
+    end
+  end
+
 end

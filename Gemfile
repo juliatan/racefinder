@@ -31,6 +31,7 @@ group :test, :development do
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
