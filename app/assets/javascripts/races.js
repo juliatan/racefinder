@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $.get('/hotels.json', function(json){
-    console.log(json);
+
     var hotels = json;
   // var hotels = [
   //   {
