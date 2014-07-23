@@ -36,12 +36,14 @@ $(document).ready(function(){
     var iconOffset = 0.0015
     
     function locationPreference() {
-      if ($("#map").data('preferred_location') == 'Start line') {
+      if ($("#map").data('preferred-location') == 'Start line') {
         return [52.51518, 13.35938]
       } else {
         return [52.51622, 13.37573]
       };
     };
+
+    console.log(locationPreference()[0])
       
     GMaps.geocode({
       lat: locationPreference()[0],

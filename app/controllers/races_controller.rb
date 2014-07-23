@@ -1,6 +1,6 @@
 class RacesController < ApplicationController
 	def index
-		@selection = params[:race]
+		@selection = params[:preferred_location]
 
 		@test = "test"
 	end
