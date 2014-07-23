@@ -96,8 +96,15 @@ $(document).ready(function(){
             icon: "/hotel_icon.png",
             infoWindow: {
               content: 
-                '<p><img class="hotel-photo" src="/assets/' + hotel.photo1 + '"></p><p>'+ hotel.name + '</p><p>' + hotel.address + '</p><p>Rating: ' + hotel.rating + '</p><p>Price per night: £'+ hotel.price + '</p><p>' + hotel.gym + '</p><p>' + hotel.breakfast + '</p><p>' + hotel.wifi + '</p><p>'
-                + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+                '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
+                '"></p><p>' + hotel.name + 
+                '</p><p>' + hotel.address + 
+                '</p><p>Rating: ' + hotel.rating + 
+                '</p><p>Price per night: £'+ hotel.price + 
+                '</p><p>' + hotel.gym + 
+                '</p><p>' + hotel.breakfast + 
+                '</p><p>' + hotel.wifi + 
+                '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
             }
           });
         }

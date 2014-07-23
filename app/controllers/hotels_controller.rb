@@ -9,5 +9,20 @@ class HotelsController < ApplicationController
     data = open(url).read
 
     @hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
+
+    @hotels_id = []
+
+    @hotels.each do |hotel|
+      @hotels_id << hotel["hotelId"]
+    end
+
+    @hotels_info = []
+
+    @hotels_id.each do |id|
+      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&hotelId="+id.to_s
+      data = open(url).read
+      @hotels_info << JSON.parse(data)["HotelInformationResponse"]
+    end
+
   end
 end
