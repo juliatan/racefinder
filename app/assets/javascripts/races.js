@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  console.log($("#map").data('race'));
+  
   var hotels = [
     {
       name: 'The Ritz Carlton',
@@ -35,9 +35,18 @@ $(document).ready(function(){
   });
 
   var iconOffset = 0.0015
-
+  
+  function locationPreference() {
+    if ($("#map").data('race') == 'Start line') {
+      return [52.51518, 13.35938]
+    } else {
+      return [52.51622, 13.37573]
+    };
+  };
+    
   GMaps.geocode({
-    address: 'Straße des 17. Juni 31, Berlin, Germany',
+    lat: locationPreference()[0],
+    lng: locationPreference()[1],
     callback: function(results, status) {
       if (status == 'OK') {
         var latlng = results[0].geometry.location;
