@@ -1,4 +1,5 @@
 <%= form_tag(races_path, method: :get) do %>
+  <%= select_tag :marathon, options_for_select(["Berlin", "London", "New York", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
 	<%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
 	<%= text_field_tag :nights, nil, placeholder: 'Number of nights' %>
 	<%= submit_tag 'Search' %>
