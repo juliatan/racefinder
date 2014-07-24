@@ -38,11 +38,23 @@ Race.create(
 	finish_lat: -33.85801,
 	finish_long: 151.21426 
 	)
+# Race.create(
+# 	name:"New York",
+# 	address:"10305, Staten Island, Richmond, NY, USA",
+# 	start_lat: 40.60205,
+# 	start_long: -74.05952,
+# 	# start_lat: 40.785871,
+# 	# start_long: -73.953352,
+# 	finish_lat: 40.77254,
+# 	finish_long: -73.97669
+# 	)
 Race.create(
-	name:"New York",
-	address:"10305, Staten Island, Richmond, NY, USA",
-	start_lat: 40.60205,
-	start_long: -74.05952,
-	finish_lat: 40.77254,
-	finish_long: -73.97669
+	name:"Stockholm",
+	address:"115 50 Stockholm, Sweden",
+	start_lat: 59.34636,
+	start_long: 18.08461,
+	# start_lat: 40.785871,
+	# start_long: -73.953352,
+	finish_lat: 59.34522,
+	finish_long: 18.07972
 	)
