@@ -1,5 +1,5 @@
 <%= form_tag(races_path, method: :get) do %>
 	<%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
-	<%= text_field_tag :nights, nil, placeholder: 'Number of nights' %>
+	<span id="jrange" class="dates"><%= text_field_tag :nights, nil, placeholder: 'Select arrival and departure', id: 'datepicker' %><div class='calendar'></div></span>
 	<%= submit_tag 'Search' %>
 <% end %>

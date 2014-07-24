@@ -70,7 +70,18 @@ $(document).ready(function(){
 
             hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
 
-            hotel.numberOfNights = $('#map').data('nights');
+            // maggie
+            var params = $('#map').data('nights');
+            var dates = params.split(' - ')
+            var arrival = dates[0]
+            var departure = dates[1]
+            var arrivalFormatted = new Date(arrival)
+            var departureFormatted = new Date(departure)
+            var nightsMilliseconds = departureFormatted - arrivalFormatted
+            hotel.numberOfNights = nightsMilliseconds/86400000
+            // end maggie
+
+
             hotel.totalPrice = hotel.price * hotel.numberOfNights;
             hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
 
