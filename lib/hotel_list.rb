@@ -6,10 +6,16 @@ def hotel_api_call_start_line
   cities = Race.all
 
   cities.each do |city|
+
+    current_date = Time.now
+    current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
+    departure_date = current_date + 24*60*60
+    departure_date_formatted = "#{departure_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
+
     latitude = city.start_lat.to_s
     longitude = city.start_long.to_s
 
-    url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300"
+    url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
   
     data = open(url).read
     hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
@@ -36,10 +42,16 @@ end
     cities = Race.all
 
     cities.each do |city|
+
+      current_date = Time.now
+      current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
+      departure_date = current_date + 24*60*60
+      departure_date_formatted = "#{departure_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
+      
       latitude = city.finish_lat
       longitude = city.finish_long
 
-      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300"
+      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
     
       data = open(url).read
       hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
