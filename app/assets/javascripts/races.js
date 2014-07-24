@@ -100,8 +100,9 @@ $(document).ready(function(){
         });
       })
 
+      window.map = map;
+
     });
     
-    window.map = map;
   }
 })

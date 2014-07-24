@@ -4,7 +4,7 @@ require 'launchy'
 describe 'Map listing for race' do
 
   it 'should display a map', js: true do
-    visit '/races'
+    enter_race_details
     expect(page).to have_map
   end
 
@@ -15,21 +15,21 @@ describe 'Map listing for race' do
   # cannot be tested
 
   it 'can show a hotel', js: true do
-    visit '/races'
-    sleep 2
+    enter_race_details
+    sleep 5
     page.execute_script("google.maps.event.trigger(window.map.markers[3], 'click');")
     expect(page).to have_content 'The Westin Grand'
   end
 
   it 'can show more than one hotel', js: true do
-    visit '/races'
-    sleep 2
+    enter_race_details
+    sleep 5
     expect(page.evaluate_script("window.map.markers.length")).to eq 12
   end
 
   it 'shows one picture of the hotel', js: true do
-    visit '/races'
-    sleep 1
+    enter_race_details
+    sleep 5
     page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
     expect(page).to have_css 'img.hotel-photo'
   end
