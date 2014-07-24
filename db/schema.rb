@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724135858) do
+ActiveRecord::Schema.define(version: 20140724151323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20140724135858) do
     t.float    "tripadvisor_rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "city"
+    t.float    "ref_lat"
+    t.float    "ref_long"
   end
 
   create_table "races", force: true do |t|
