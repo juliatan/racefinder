@@ -71,8 +71,8 @@ $(document).ready(function(){
             hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
 
             // maggie
-            var params = $('#map').data('nights');
-            var dates = params.split(' - ')
+            var dateParams = $('#map').data('nights');
+            var dates = dateParams.split(' - ')
             var arrival = dates[0]
             var departure = dates[1]
             var arrivalFormatted = new Date(arrival)
