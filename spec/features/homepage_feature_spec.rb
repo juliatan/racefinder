@@ -8,8 +8,8 @@ describe 'Homepage' do
     fill_in 'Number of nights', with: '1'
     click_button 'Search'
     sleep 1
-    expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of 13.363679999999922
     expect(page.evaluate_script("map.getCenter().lat()")).to be_within(0.05).of 52.51414999999994
+    expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of 13.363679999999922
   end
 
   it 'can select London', js:true do
@@ -19,8 +19,8 @@ describe 'Homepage' do
     fill_in 'Number of nights', with: '1'
     click_button 'Search'
     sleep 1
-    expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of -0.001416
     expect(page.evaluate_script("map.getCenter().lat()")).to be_within(0.05).of 51.477805
+    expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of -0.001416
   end
 
   it 'can select more than one marathon from a dropdown menu'
@@ -33,8 +33,8 @@ describe 'Homepage' do
     fill_in 'Number of nights', with: '1'
   	click_button 'Search'
   	sleep 1
-  	expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of 13.363679999999922
   	expect(page.evaluate_script("map.getCenter().lat()")).to be_within(0.05).of 52.51414999999994
+    expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of 13.363679999999922
   end
 
   it 'can select finish point as reference'
