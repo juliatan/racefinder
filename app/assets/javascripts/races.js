@@ -53,85 +53,60 @@ $(document).ready(function(){
 
         // Hotel markers
         hotels.forEach(function(hotel){
-         
-          hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
-          map.addMarker({
-            lat: hotel.lat,
-            lng: hotel.long,
-            title: hotel.name,
-            icon: "/hotel_icon.png",
-            infoWindow: {
-              content: 
-                '<p>' + hotel.name + 
-                '</p><p>' + hotel.address + '</p>'
-            }
-          });
 
-          // var route = map.getRoutes({
-          //   origin: [hotel.lat, hotel.long], //hotel coordinates
-          //   destination: [52.51518, 13.35938], //start line coordinates
-          //   callback: function (e) {
-          //     var time = 0;
-          //     var distance = 0;
-          //     var legs = e.pop().legs;
+          var route = map.getRoutes({
+            origin: [hotel.lat, hotel.long], //hotel coordinates
+            destination: [locationPreference()[0], locationPreference()[1]], //start line coordinates
+            callback: function (e) {
+              var time = 0;
+              var distance = 0;
+              var legs = e.pop().legs;
 
-          //     for (var i=0; i<legs.length; i++) {
-          //       time += legs[i].duration.value;
-          //       distance += legs[i].distance.value;
-          //     }
+              for (var i=0; i<legs.length; i++) {
+                time += legs[i].duration.value;
+                distance += legs[i].distance.value;
+              }
 
-          //     var minutesH = time/60;
-          //     var minutes = Math.round(minutesH*100)/100;
+              var minutesH = time/60;
+              var minutes = Math.round(minutesH*100)/100;
+              var metres = distance/1000;
+              var km = Math.round(metres*100)/100;
+              hotel.minutes = minutes;
+              hotel.km = km;
+           
+              var dateParams = $('#map').data('nights');
+              var dates = dateParams.split(' - ')
+              var arrival = dates[0]
+              var departure = dates[1]
+              var arrivalFormatted = new Date(arrival)
+              var departureFormatted = new Date(departure)
+              var nightsMilliseconds = departureFormatted - arrivalFormatted
+              hotel.numberOfNights = nightsMilliseconds/86400000
+              hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
+              hotel.totalPrice = hotel.price * hotel.numberOfNights;
+              hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
 
-          //     var metres = distance/1000;
-          //     var km = Math.round(metres*100)/100;
-
-          //     hotel.minutes = minutes;
-          //     hotel.km = km;
-
-          //     hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
-
-          //     var dateParams = $('#map').data('nights');
-          //     var dates = dateParams.split(' - ')
-          //     var arrival = dates[0]
-          //     var departure = dates[1]
-          //     var arrivalFormatted = new Date(arrival)
-          //     var departureFormatted = new Date(departure)
-          //     var nightsMilliseconds = departureFormatted - arrivalFormatted
-          //     hotel.numberOfNights = nightsMilliseconds/86400000
-          //     // end maggie
-
-
-          //     hotel.totalPrice = hotel.price * hotel.numberOfNights;
-          //     hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
-
-             
-
-          //     map.addMarker({
-          //       lat: hotel.lat,
-          //       lng: hotel.long,
-          //       title: hotel.name,
-          //       icon: "/hotel_icon.png",
-          //       infoWindow: {
-          //         content: 
-          //         '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
-          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
-          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
-          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 
-          //         '"></p><p>' + hotel.name + 
-          //         '</p><p>' + hotel.address + 
-          //         '</p><p>Rating: ' + hotel.rating + 
-          //         '</p><p>Price per night: £'+ hotel.priceFormatted + 
-          //         '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
-          //         ' nights</p><p>' + hotel.gym + 
-          //         '</p><p>' + hotel.breakfast + 
-          //         '</p><p>' + hotel.wifi + 
-          //         '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
-          //       }
-          //     });
-          //   }
-          // });
-        })
+              map.addMarker({
+                lat: hotel.lat,
+                lng: hotel.long,
+                title: hotel.name,
+                icon: "/hotel_icon.png",
+                infoWindow: {
+                  content: 
+                    '<p>' + hotel.name + 
+                    '</p><p>' + hotel.address + 
+                    '</p><p>Rating: ' + hotel.rating + 
+                    '</p><p>Price per night: £'+ hotel.priceFormatted + 
+                    '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
+                    ' nights</p><p>' + hotel.gym + 
+                    '</p><p>' + hotel.breakfast + 
+                    '</p><p>' + hotel.wifi + 
+                    '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+                } //infoWindow
+              }); //map.addMarker
+          } //callback: function (e)
+        }); // var route = map.getRoutes
+      }); // hotels.forEach(function(hotel){
 
         window.map = map;
 
@@ -140,3 +115,9 @@ $(document).ready(function(){
     
   }
 })
+
+
+//         '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
+//         '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
+//         '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
+//         '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 
