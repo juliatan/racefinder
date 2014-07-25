@@ -1,6 +1,40 @@
-<%= form_tag(races_path, method: :get) do %>
-  <%= select_tag :marathon, options_for_select(["Berlin", "London", "New York", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
-	<%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
-	<span id="jrange" class="dates"><%= text_field_tag :nights, nil, placeholder: 'Select arrival and departure', id: 'datepicker' %><div class='calendar'></div></span>
-	<%= submit_tag 'Search' %>
-<% end %>
+<div ng-controller="CarouselCtrl">
+  <div style="height: 100%">
+    <carousel interval="carouselInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+      </slide>
+
+      <%= form_tag(races_path, method: :get) do %>
+        <%= select_tag :marathon, options_for_select(["Berlin", "London", "New York", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
+        <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
+        <!--  <span id="jrange" class="dates"><%= text_field_tag :nights, nil, placeholder: 'Select arrival and departure', id: 'datepicker' %><div class='calendar'></div></span> -->
+        <%= submit_tag 'Search' %>
+      <% end %>
+
+    </carousel>
+  </div>
+</div>
+
+<!-- Angular carousel template overwrite to prevent pause on mouseover -->
+<script id="template/carousel/carousel.html" type="text/ng-template">
+        <div ng-mouseenter="" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+    <ol class="carousel-indicators" ng-show="slides.length > 1">
+        <li ng-repeat="slide in slides track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>
+    </ol>
+    <div class="carousel-inner" ng-transclude></div>
+    <a class="left carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+</script>
+
+<script id="template/carousel/slide.html" type="text/ng-template">
+   <div ng-class="{
+    'active': leaving || (active && !entering),
+    'prev': (next || active) && direction=='prev',
+    'next': (next || active) && direction=='next',
+    'right': direction=='prev',
+    'left': direction=='next'
+  }" class="item text-center" ng-transclude></div>
+</script>
+<!-- end of Angular carousel -->
