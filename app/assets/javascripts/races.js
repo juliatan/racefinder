@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
   
-      $.get('/hotels.json?' + $('#map').data('nights') + '&' + $('#map').data('preferred-location') + '&' + $('#map').data('marathon'), function(hotels){
+      $.get('/hotels.json?nights=07%2F30%2F2014+-+07%2F31%2F2014&preferred_location=' + $('#map').data('preferred-location') + '&marathon=' + $('#map').data('marathon'), function(hotels){
 
         var map = new GMaps({
           div: '#map',
