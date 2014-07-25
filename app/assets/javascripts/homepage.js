@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  if($('.dates').length > 0) {
+
    $.datepicker._defaults.onAfterUpdate = null;
 
    var datepicker__updateDatepicker = $.datepicker._updateDatepicker;
@@ -87,4 +89,5 @@ $(document).ready(function(){
          });
 
    });
+  };
 }); //closing document ready

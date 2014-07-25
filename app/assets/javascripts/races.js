@@ -5,120 +5,138 @@ $(document).ready(function(){
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
   
-    $.get('/hotels.json?nights=' + $('#map').data('nights') + '&' + $('#map').data('marathon'), function(json){
+      $.get('/hotels.json?nights=' + $('#map').data('nights') + '&' + $('#map').data('preferred-location'), function(hotels){
 
-      var hotels = json;
+        var map = new GMaps({
+          div: '#map',
+          lat: 0,
+          lng: 0
+        });
 
-      var map = new GMaps({
-        div: '#map',
-        lat: 0,
-        lng: 0
-      });
-
-      var iconOffset = 0.0015;
-      
-
-      function locationPreference() {
-        if ($("#map").data('preferred-location') == 'Start line') {
-          return [marathon.startLat, marathon.startLong]
-        } else {
-          return [marathon.finishLat, marathon.finishLong]
+        
+        function locationPreference() {
+          if ($("#map").data('preferred-location') == 'Start line') {
+            return [marathon.startLat, marathon.startLong]
+          } else {
+            return [marathon.finishLat, marathon.finishLong]
+          };
         };
-      };
 
-      GMaps.geocode({
-        lat: locationPreference()[0],
-        lng: locationPreference()[1],
-        callback: function(results, status) {
-          if (status == 'OK') {
-            var latlng = results[0].geometry.location;
-            map.setCenter(latlng.lat(), latlng.lng());
-            map.addMarker({
-              lat: 52.51518 - iconOffset,
-              lng: 13.35938,
-              icon: "/start_line_icon.png"
-            });
-          }
-        }
-      });
-
-      map.addMarker({
-        lat: 52.51622 - iconOffset,
-        lng: 13.37573,
-        title: 'Finish Line',
-        icon: "/finish_line_icon.png"
-      });
-
-      hotels.forEach(function(hotel){
-        var route = map.getRoutes({
-          origin: [hotel.lat, hotel.long], //hotel coordinates
-          destination: [52.51518, 13.35938], //start line coordinates
-          callback: function (e) {
-            var time = 0;
-            var distance = 0;
-            var legs = e.pop().legs;
-
-            for (var i=0; i<legs.length; i++) {
-              time += legs[i].duration.value;
-              distance += legs[i].distance.value;
+        // Centering the map on load based on user preference
+        GMaps.geocode({
+          lat: locationPreference()[0],
+          lng: locationPreference()[1],
+          callback: function(results, status) {
+            if (status == 'OK') {
+              var latlng = results[0].geometry.location;
+              map.setCenter(latlng.lat(), latlng.lng());
             }
-
-            var minutesH = time/60;
-            var minutes = Math.round(minutesH*100)/100;
-
-            var metres = distance/1000;
-            var km = Math.round(metres*100)/100;
-
-            hotel.minutes = minutes;
-            hotel.km = km;
-
-            hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
-
-            // maggie
-            var dateParams = $('#map').data('nights');
-            var dates = dateParams.split(' - ')
-            var arrival = dates[0]
-            var departure = dates[1]
-            var arrivalFormatted = new Date(arrival)
-            var departureFormatted = new Date(departure)
-            var nightsMilliseconds = departureFormatted - arrivalFormatted
-            hotel.numberOfNights = nightsMilliseconds/86400000
-            // end maggie
-
-
-            hotel.totalPrice = hotel.price * hotel.numberOfNights;
-            hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
-
-            map.addMarker({
-              lat: hotel.lat,
-              lng: hotel.long,
-              title: hotel.name,
-              icon: "/hotel_icon.png",
-              infoWindow: {
-                content: 
-                '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
-                '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
-                '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
-                '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 
-                '"></p><p>' + hotel.name + 
-                '</p><p>' + hotel.address + 
-                '</p><p>Rating: ' + hotel.rating + 
-                '</p><p>Price per night: £'+ hotel.priceFormatted + 
-                '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
-                ' nights</p><p>' + hotel.gym + 
-                '</p><p>' + hotel.breakfast + 
-                '</p><p>' + hotel.wifi + 
-                '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
-              }
-            });
           }
         });
-      })
 
-      window.map = map;
+        var iconOffset = 0.0015;
 
-    }); //closing get hotels.json
-  }); //closing get races.json
+        // Start line marker
+        map.addMarker({
+          lat: marathon.startLat - iconOffset,
+          lng: marathon.startLong,
+          icon: "/start_line_icon.png"
+        });
+
+        // Finish line marker
+        map.addMarker({
+          lat: marathon.finishLat - iconOffset,
+          lng: marathon.finishLong,
+          title: 'Finish Line',
+          icon: "/finish_line_icon.png"
+        });
+
+        // Hotel markers
+        hotels.forEach(function(hotel){
+         
+          hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
+          map.addMarker({
+            lat: hotel.lat,
+            lng: hotel.long,
+            title: hotel.name,
+            icon: "/hotel_icon.png",
+            infoWindow: {
+              content: 
+                '<p>' + hotel.name + 
+                '</p><p>' + hotel.address + '</p>'
+            }
+          });
+
+          // var route = map.getRoutes({
+          //   origin: [hotel.lat, hotel.long], //hotel coordinates
+          //   destination: [52.51518, 13.35938], //start line coordinates
+          //   callback: function (e) {
+          //     var time = 0;
+          //     var distance = 0;
+          //     var legs = e.pop().legs;
+
+          //     for (var i=0; i<legs.length; i++) {
+          //       time += legs[i].duration.value;
+          //       distance += legs[i].distance.value;
+          //     }
+
+          //     var minutesH = time/60;
+          //     var minutes = Math.round(minutesH*100)/100;
+
+          //     var metres = distance/1000;
+          //     var km = Math.round(metres*100)/100;
+
+          //     hotel.minutes = minutes;
+          //     hotel.km = km;
+
+          //     hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
+
+          //     var dateParams = $('#map').data('nights');
+          //     var dates = dateParams.split(' - ')
+          //     var arrival = dates[0]
+          //     var departure = dates[1]
+          //     var arrivalFormatted = new Date(arrival)
+          //     var departureFormatted = new Date(departure)
+          //     var nightsMilliseconds = departureFormatted - arrivalFormatted
+          //     hotel.numberOfNights = nightsMilliseconds/86400000
+          //     // end maggie
+
+
+          //     hotel.totalPrice = hotel.price * hotel.numberOfNights;
+          //     hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
+
+             
+
+          //     map.addMarker({
+          //       lat: hotel.lat,
+          //       lng: hotel.long,
+          //       title: hotel.name,
+          //       icon: "/hotel_icon.png",
+          //       infoWindow: {
+          //         content: 
+          //         '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
+          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
+          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
+          //         '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 
+          //         '"></p><p>' + hotel.name + 
+          //         '</p><p>' + hotel.address + 
+          //         '</p><p>Rating: ' + hotel.rating + 
+          //         '</p><p>Price per night: £'+ hotel.priceFormatted + 
+          //         '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
+          //         ' nights</p><p>' + hotel.gym + 
+          //         '</p><p>' + hotel.breakfast + 
+          //         '</p><p>' + hotel.wifi + 
+          //         '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+          //       }
+          //     });
+          //   }
+          // });
+        })
+
+        window.map = map;
+
+      }); //closing get hotels.json
+    }); //closing get races.json
     
   }
 })
