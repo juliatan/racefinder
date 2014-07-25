@@ -54,7 +54,38 @@ $(document).ready(function(){
         // Hotel markers
         hotels.forEach(function(hotel){
 
-          var route = map.getRoutes({
+          var dateParams = $('#map').data('nights');
+          var dates = dateParams.split(' - ')
+          var arrival = dates[0]
+          var departure = dates[1]
+          var arrivalFormatted = new Date(arrival)
+          var departureFormatted = new Date(departure)
+          var nightsMilliseconds = departureFormatted - arrivalFormatted
+          hotel.numberOfNights = nightsMilliseconds/86400000
+          hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
+          hotel.totalPrice = hotel.price * hotel.numberOfNights;
+          hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
+
+          map.addMarker({
+            lat: hotel.lat,
+            lng: hotel.long,
+            title: hotel.name,
+            icon: "/hotel_icon.png",
+            infoWindow: {
+              content: 
+                '<p>' + hotel.name + 
+                '</p><p>' + hotel.address + 
+                '</p><p>Rating: ' + hotel.rating + 
+                '</p><p>Price per night: £'+ hotel.priceFormatted + 
+                '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
+                ' nights</p><p>' + hotel.gym + 
+                '</p><p>' + hotel.breakfast + 
+                '</p><p>' + hotel.wifi + 
+                '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+              } //infoWindow
+          }); //map.addMarker
+
+          map.getRoutes({
             origin: [hotel.lat, hotel.long], //hotel coordinates
             destination: [locationPreference()[0], locationPreference()[1]], //start line coordinates
             callback: function (e) {
@@ -73,40 +104,9 @@ $(document).ready(function(){
               var km = Math.round(metres*100)/100;
               hotel.minutes = minutes;
               hotel.km = km;
-           
-              var dateParams = $('#map').data('nights');
-              var dates = dateParams.split(' - ')
-              var arrival = dates[0]
-              var departure = dates[1]
-              var arrivalFormatted = new Date(arrival)
-              var departureFormatted = new Date(departure)
-              var nightsMilliseconds = departureFormatted - arrivalFormatted
-              hotel.numberOfNights = nightsMilliseconds/86400000
-              hotel.priceFormatted = (Math.round(hotel.price*100)/100).toFixed(2);
-              hotel.totalPrice = hotel.price * hotel.numberOfNights;
-              hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
-
-              map.addMarker({
-                lat: hotel.lat,
-                lng: hotel.long,
-                title: hotel.name,
-                icon: "/hotel_icon.png",
-                infoWindow: {
-                  content: 
-                    '<p>' + hotel.name + 
-                    '</p><p>' + hotel.address + 
-                    '</p><p>Rating: ' + hotel.rating + 
-                    '</p><p>Price per night: £'+ hotel.priceFormatted + 
-                    '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
-                    ' nights</p><p>' + hotel.gym + 
-                    '</p><p>' + hotel.breakfast + 
-                    '</p><p>' + hotel.wifi + 
-                    '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
-                } //infoWindow
-              }); //map.addMarker
-          } //callback: function (e)
-        }); // var route = map.getRoutes
-      }); // hotels.forEach(function(hotel){
+            } //callback: function (e)
+          }); // map.getRoutes
+        }); // hotels.forEach(function(hotel){
 
         window.map = map;
 
