@@ -1,6 +1,5 @@
 require 'json'
 require 'open-uri'
-# require '/app/models/race'
 
 def hotel_api_call_start_line
 
@@ -20,7 +19,7 @@ def hotel_api_call_start_line
     latitude = city.start_lat.to_s
     longitude = city.start_long.to_s
 
-    url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=5"
+    url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=5"
   
     data = open(url).read
     @hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
@@ -37,8 +36,19 @@ def hotel_api_call_start_line
       tripadvisor_rating = hotel["tripAdvisorRating"]
       city = hotel["city"]
 
-      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, race_id: race_id)
+      hotel_info_url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&hotelId=" + hotel_id.to_s
+      hotel_data = open(hotel_info_url).read
+      @hotel_info = JSON.parse(hotel_data)["HotelInformationResponse"]
+
+      @hotel_images = []
+
+      (0..3).to_a.each do |index|
+        @hotel_images << @hotel_info["HotelImages"]["HotelImage"][index]["url"]
+      end
+
+      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, image1: @hotel_images[0], image2: @hotel_images[1], image3: @hotel_images[2], image4: @hotel_images[3], race_id: race_id)
     end
+
   end
 end
 
@@ -77,7 +87,17 @@ def hotel_api_call_finish_line
       tripadvisor_rating = hotel["tripAdvisorRating"]
       city = hotel["city"]
 
-      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, race_id: race_id)
+      hotel_info_url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&hotelId=" + hotel_id.to_s
+      hotel_data = open(hotel_info_url).read
+      @hotel_info = JSON.parse(hotel_data)["HotelInformationResponse"]
+
+      @hotel_images = []
+
+      (0..3).to_a.each do |index|
+        @hotel_images << @hotel_info["HotelImages"]["HotelImage"][index]["url"]
+      end
+
+      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, image1: @hotel_images[0], image2: @hotel_images[1], image3: @hotel_images[2], image4: @hotel_images[3], race_id: race_id)
     end
   end
 end
@@ -93,5 +113,3 @@ end
 #     current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
 #     departure_date = current_date + params[:nights].to_i*24*60*60
 #     departure_date_formatted = "#{departure_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
-
-  

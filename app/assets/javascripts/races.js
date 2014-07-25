@@ -2,7 +2,6 @@ $(document).ready(function(){
 
   if($('#map').length > 0) {
 
-
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
   
       $.get('/hotels.json?nights=07%2F30%2F2014+-+07%2F31%2F2014&preferred_location=' + $('#map').data('preferred-location') + '&marathon=' + $('#map').data('marathon'), function(hotels){
@@ -13,7 +12,6 @@ $(document).ready(function(){
           lng: 0
         });
 
-        
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
             return [marathon.startLat, marathon.startLong]
@@ -21,7 +19,6 @@ $(document).ready(function(){
             return [marathon.finishLat, marathon.finishLong]
           };
         };
-
 
         // Centering the map on load based on user preference
         GMaps.geocode({
@@ -74,7 +71,11 @@ $(document).ready(function(){
             icon: "/hotel_icon.png",
             infoWindow: {
               content: 
-                '<p>' + hotel.name + 
+                '<p><img class="hotel-photo" src="' + hotel.image1 + 
+                '" /></p><p><img class="hotel-photo" src="' + hotel.image2 + 
+                '" /></p><p><img class="hotel-photo" src="' + hotel.image3 + 
+                '" /></p><p><img class="hotel-photo" src="' + hotel.image4 + 
+                '" /></p><p>' + hotel.name + 
                 '</p><p>' + hotel.address + 
                 '</p><p>Rating: ' + hotel.rating + 
                 '</p><p>Price per night: £'+ hotel.priceFormatted + 
@@ -109,16 +110,10 @@ $(document).ready(function(){
           }); // map.getRoutes
         }); // hotels.forEach(function(hotel){
 
-        window.map = map;
+        window.map = map; // for testing purposes
 
       }); //closing get hotels.json
     }); //closing get races.json
     
   }
 })
-
-
-//         '<p><img class="hotel-photo" src="' + hotel.images[0]["image_url"] + 
-//         '"></p><p><img class="hotel-photo" src="' + hotel.images[1]["image_url"] + 
-//         '"></p><p><img class="hotel-photo" src="' + hotel.images[2]["image_url"] + 
-//         '"></p><p><img class="hotel-photo" src="' + hotel.images[3]["image_url"] + 

@@ -3,6 +3,10 @@ require 'launchy'
 
 describe 'Map listing for race' do
 
+  before do
+    load "#{Rails.root}/db/seeds.rb"
+  end
+
   it 'should display a map', js: true do
     enter_race_details
     expect(page).to have_map
@@ -32,6 +36,12 @@ describe 'Map listing for race' do
     sleep 5
     page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
     expect(page).to have_css 'img.hotel-photo'
+  end
+
+  it 'shows relevant hotels for user selected city and reference point', js: true do
+    enter_race_details
+    sleep 5
+    expect(page.evaluate_script("window.map.markers.length")).to eq 7
   end
 
 end
