@@ -1,7 +1,7 @@
 angular.module("strides",['ui.bootstrap']);
 
 function CarouselCtrl($scope) {
-  $scope.carouselInterval = 1000;
+  $scope.carouselInterval = 6000;
   
   var slides = $scope.slides = [
     {
