@@ -102,13 +102,6 @@ def hotel_api_call_finish_line
   end
 end
 
-# def hotel_images
-# json.images @hotels_info[index]["HotelImages"]["HotelImage"].first(4) do |image|
-#     json.image_url image["url"]
-#   end
-
-# end
-
 # current_date = Time.now
 #     current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
 #     departure_date = current_date + params[:nights].to_i*24*60*60

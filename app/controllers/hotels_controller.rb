@@ -1,6 +1,3 @@
-require 'json'
-require 'open-uri'
-
 class HotelsController < ApplicationController
   def index
     @race = Race.find_by(name: params[:marathon])

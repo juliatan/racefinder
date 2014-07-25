@@ -11,5 +11,4 @@ json.array! @city_hotels_selected do |hotel|
   json.image2   hotel.image2
   json.image3   hotel.image3
   json.image4   hotel.image4
-
 end
