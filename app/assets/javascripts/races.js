@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
   
-      $.get('/hotels.json?nights=' + $('#map').data('nights') + '&' + $('#map').data('preferred-location'), function(hotels){
+      $.get('/hotels.json?' + $('#map').data('nights') + '&' + $('#map').data('preferred-location') + '&' + $('#map').data('marathon'), function(hotels){
 
         var map = new GMaps({
           div: '#map',
@@ -21,6 +21,7 @@ $(document).ready(function(){
             return [marathon.finishLat, marathon.finishLong]
           };
         };
+
 
         // Centering the map on load based on user preference
         GMaps.geocode({

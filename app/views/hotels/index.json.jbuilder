@@ -1,4 +1,4 @@
-json.array! @hotels do |hotel|
+json.array! @city_hotels_selected do |hotel|
   json.name     hotel.name
   json.address  hotel.address
   json.id       hotel.hotel_id
