@@ -2,7 +2,10 @@ $(document).ready(function(){
 
   if($('#map').length > 0) {
 
-    $.get('/hotels.json?nights=' + $('#map').data('nights'), function(json){
+
+    $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
+  
+    $.get('/hotels.json?nights=' + $('#map').data('nights') + '&' + $('#map').data('marathon'), function(json){
 
       var hotels = json;
 
@@ -13,12 +16,13 @@ $(document).ready(function(){
       });
 
       var iconOffset = 0.0015;
+      
 
       function locationPreference() {
         if ($("#map").data('preferred-location') == 'Start line') {
-          return [52.51518, 13.35938]
+          return [marathon.startLat, marathon.startLong]
         } else {
-          return [52.51622, 13.37573]
+          return [marathon.finishLat, marathon.finishLong]
         };
       };
 
@@ -113,7 +117,8 @@ $(document).ready(function(){
 
       window.map = map;
 
-    });
+    }); //closing get hotels.json
+  }); //closing get races.json
     
   }
 })

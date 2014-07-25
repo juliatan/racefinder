@@ -21,9 +21,9 @@ def hotel_api_call_start_line
     url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=5"
   
     data = open(url).read
-    hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
+    @hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
 
-    hotels.each do |hotel|
+    @hotels.each do |hotel|
       hotel_id = hotel["hotelId"]
       name = hotel["name"]
       address = hotel["address1"]
@@ -59,9 +59,9 @@ def hotel_api_call_finish_line
     url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PROXIMITY&maxRate=300&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=5"
   
     data = open(url).read
-    hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
+    @hotels = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
 
-    hotels.each do |hotel|
+    @hotels.each do |hotel|
       hotel_id = hotel["hotelId"]
       name = hotel["name"]
       address = hotel["address1"]
