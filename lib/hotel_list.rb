@@ -1,5 +1,6 @@
 require 'json'
 require 'open-uri'
+require_relative 'race'
 
 def hotel_api_call_start_line
 
