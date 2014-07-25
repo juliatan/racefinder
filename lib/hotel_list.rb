@@ -8,6 +8,8 @@ def hotel_api_call_start_line
 
   cities.each do |city|
 
+    race_id = city.id
+
     current_date = Time.now + 24*60*60*30*7
     current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
     # current_date_formatted = "08%2F01%2F14"
@@ -35,7 +37,7 @@ def hotel_api_call_start_line
       tripadvisor_rating = hotel["tripAdvisorRating"]
       city = hotel["city"]
 
-      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city)
+      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, race_id: race_id)
     end
   end
 end
@@ -45,6 +47,8 @@ def hotel_api_call_finish_line
   cities = Race.all
 
   cities.each do |city|
+
+    race_id = city.id
 
     current_date = Time.now + 24*60*60*30*7
     current_date_formatted = "#{current_date.strftime('%m/%d/%y').gsub('/',"%2F")}"
@@ -73,7 +77,7 @@ def hotel_api_call_finish_line
       tripadvisor_rating = hotel["tripAdvisorRating"]
       city = hotel["city"]
 
-      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city)
+      Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, race_id: race_id)
     end
   end
 end

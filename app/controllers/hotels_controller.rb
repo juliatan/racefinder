@@ -38,7 +38,7 @@ class HotelsController < ApplicationController
     #   @hotels_info << JSON.parse(data)["HotelInformationResponse"]
     # end
 
-    @hotels = Hotel.all
-
+    @race = Race.find_by(name: params[:marathon])
+    @hotels = Hotel.find_by params
   end
 end
