@@ -49,9 +49,6 @@ describe 'Homepage' do
   end
   
   context 'number of nights' do
-     before do
-    load "#{Rails.root}/db/seeds.rb"
-  end
 
     it 'user can fill in number of nights', js: true do
       Hotel.create!(race_id: 3, name: 'Hotel1', price: 150, lat: 52.50927, long: 13.37374, ref_lat: 52.51415, ref_long: 13.36368)
