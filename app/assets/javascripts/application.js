@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require gmaps
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require_tree .

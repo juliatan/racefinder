@@ -1,3 +1,6 @@
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+
 div.carousel-inner img {
 	width: 100%;
 	z-index: 900;
@@ -15,10 +18,6 @@ div.carousel-inner form {
 	visibility: hidden;
 }
 /* end overwrite */
-
-.calendar {
-	position: relative;
-}
 
 /*! jQuery UI - v1.11.0 - 2014-06-26
 * http://jqueryui.com

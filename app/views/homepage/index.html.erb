@@ -8,13 +8,27 @@
       <%= form_tag(races_path, method: :get) do %>
         <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
         <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
-        <!--  <span id="jrange" class="dates"><%= text_field_tag :nights, nil, placeholder: 'Select arrival and departure', id: 'datepicker' %><div class='calendar'></div></span> -->
+        <span class="input-daterange">
+          <input type="text" name="arrival" class="input-small" value="Arrival date" />
+          <span class="add-on">to</span>
+          <input type="text" name="departure" class="input-small" value="Departure date" />
+        </span>
         <%= submit_tag 'Search' %>
       <% end %>
 
     </carousel>
   </div>
 </div>
+
+<!-- datepicker rails -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.input-daterange').datepicker();
+  })
+</script>
+
+<!-- end datepicker rails -->
 
 <!-- Angular carousel template overwrite to prevent pause on mouseover -->
 <script id="template/carousel/carousel.html" type="text/ng-template">
