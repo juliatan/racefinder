@@ -3,8 +3,8 @@ $(document).ready(function(){
   if($('#map').length > 0) {
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
-  
-      $.get('/hotels.json?nights=07%2F30%2F2014+-+07%2F31%2F2014&preferred_location=' + $('#map').data('preferred-location') + '&marathon=' + $('#map').data('marathon') + '&price=' + $('#map').data('price'), function(hotels){
+
+      $.get('/hotels.json?arrival=' + $('#map').data('arrival') + '&departure=' + $('#map').data('departure') + '&preferred_location=' + $('#map').data('preferred-location') + '&marathon=' + $('#map').data('marathon')+ '&price=' + $('#map').data('price'), function(hotels){
 
         var map = new GMaps({
           div: '#map',
@@ -52,10 +52,8 @@ $(document).ready(function(){
         // Hotel markers
         hotels.forEach(function(hotel){
 
-          var dateParams = $('#map').data('nights');
-          var dates = dateParams.split(' - ')
-          var arrival = dates[0]
-          var departure = dates[1]
+          var arrival = $('#map').data('arrival');
+          var departure = $('#map').data('departure');
           var arrivalFormatted = new Date(arrival)
           var departureFormatted = new Date(departure)
           var nightsMilliseconds = departureFormatted - arrivalFormatted
