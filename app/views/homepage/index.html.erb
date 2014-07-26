@@ -23,7 +23,7 @@
             </span>
 
             <span class="selection">
-              <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night' %>
+              <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night', class: "price" %>
               <i class="fa fa-sort-desc"></i>
             </span>
 
@@ -52,6 +52,10 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('.input-daterange').datepicker();
+
+    // to add £ sign to max budget dropdown menu
+    $('.price option').slice(1,4).prepend('£');
+
   })
 </script>
 
