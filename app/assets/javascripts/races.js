@@ -69,6 +69,7 @@ $(document).ready(function(){
             lng: hotel.long,
             title: hotel.name,
             icon: "/hotel_icon.png",
+            // hotel images carousel
             click: function() {
               window.setTimeout(function(){                
                 var options = {
@@ -78,15 +79,15 @@ $(document).ready(function(){
                   }
                 };
                 var jssor_slider1 = new $JssorSlider$('slider1_container', options);
-              }, 500)
+              }, 50)
             },
             infoWindow: {
               content: 
-                '<div id="slider1_container"><div u="slides" style="position: absolute; overflow: hidden; left: 0px; top: 0px; width: 300px; height: 300px;"><div><img class="hotel-photo" src="' + hotel.image1 + 
+                '<div id="slider1_container"><div id="slides" u="slides"><div><img class="hotel-photo" src="' + hotel.image1 + 
                 '" /></div><div><img class="hotel-photo" src="' + hotel.image2 + 
                 '" /></div><div><img class="hotel-photo" src="' + hotel.image3 + 
                 '" /></div><div><img class="hotel-photo" src="' + hotel.image4 + 
-                '" /></div></div><span u="arrowleft" class="jssora03l" style="width: 55px; height: 55px; top: 123px; left: 8px;"></span><span u="arrowright" class="jssora03r" style="width: 55px; height: 55px; top: 123px; right: 8px"></span></div><p>' + hotel.name + 
+                '" /></div></div><span u="arrowleft" class="jssora03l" style="width: 55px; height: 55px; top: 75px; left: 8px;"></span><span u="arrowright" class="jssora03r" style="width: 55px; height: 55px; top: 75px; right: 8px"></span></div><p>' + hotel.name + 
                 '</p><p>' + hotel.address + 
                 '</p><p>Rating: ' + hotel.rating + 
                 '</p><p>Price per night: £'+ hotel.priceFormatted + 
