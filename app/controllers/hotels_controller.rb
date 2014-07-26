@@ -10,7 +10,11 @@ class HotelsController < ApplicationController
     end
 
     @city_hotels = Hotel.where(race_id: @race_id)
+
+    # @city_hotels_within_budget = @city_hotels.where("price < ?", params[:price].to_f)
+    # Client.first(:conditions => ["orders_count = ?", params[:orders]])
+    @city_hotels_within_budget = @city_hotels.where("price > ?", params[:price].to_f)
     
-    @city_hotels_selected = @city_hotels.where(ref_lat: @ref_lat)
+    @city_hotels_selected = @city_hotels_within_budget.where(ref_lat: @ref_lat)
   end
 end
