@@ -92,20 +92,50 @@ select, input {
 	-webkit-border-radius: 0;
 	-webkit-appearance: none; /* removes default styling of form elements */
 	padding: 0 10px;
-	border-right: 1px solid #E0E0E0;
 	margin: 0;
 }
 
-select:hover, input:hover {
-	background-color: lightgrey;
+select {
+	cursor: pointer;
 }
 
 input {
 	width: 100px;
 }
 
+.marathon:hover > i, .selection:hover > i {
+	color: #A30000;
+}
+
+i {
+	transition: color 0.2s ease;
+}
+
+.marathon, .selection {
+	border-right: 1px solid #E0E0E0;
+	display: inline-block;
+	padding-right: 10px;
+}
+
 .marathon {
 	width: 200px;
+}
+
+.marathon:hover, .selection:hover {
+	background-color: #F8F8F8;
+}
+
+.fa-sort-desc {
+	position: relative;
+	top: -4px;
+}
+
+.arrival {
+	border-right: 1px solid #E0E0E0;
+}
+
+.departure {
+	border-right: 0;
 }
 
 menu button {
@@ -119,6 +149,6 @@ menu button {
 	color: white;
 }
 
-.departure {
-	border-right: 0;
+menu button:hover {
+	background-color: #B60000;
 }

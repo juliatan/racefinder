@@ -12,11 +12,23 @@
         
         <menu>
           <%= form_tag(races_path, method: :get) do %>
-            <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...', class: "marathon" %>
-            <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
-            <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night' %>
+            <span class="marathon">
+              <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
+              <i class="fa fa-sort-desc"></i>
+            </span>
+
+            <span class="selection">
+              <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
+              <i class="fa fa-sort-desc"></i>
+            </span>
+
+            <span class="selection">
+              <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night' %>
+              <i class="fa fa-sort-desc"></i>
+            </span>
+
             <span class="input-daterange">
-              <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small' %>
+              <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small arrival' %>
               <!-- <span class="add-on">to</span> -->
               <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small departure' %>
             </span>
