@@ -18,12 +18,13 @@
             <span class="input-daterange">
               <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small' %>
               <!-- <span class="add-on">to</span> -->
-              <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small' %>
+              <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small departure' %>
             </span>
-            <%= submit_tag 'Search' %>
+            <button><i class="fa fa-search fa-lg"></i></button>
           <% end %>
         </menu>
       </div>
+      <div id="dot-matrix"></div>
 
 <!--       <slide ng-repeat="slide in slides" active="slide.active">
        <img ng-src="{{slide.imag e}}" style="margin:auto;">
