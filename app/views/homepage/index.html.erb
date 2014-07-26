@@ -10,9 +10,9 @@
         <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
         <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night' %>
         <span class="input-daterange">
-          <input type="text" name="arrival" class="input-small" value="Arrival date" />
+          <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small' %>
           <span class="add-on">to</span>
-          <input type="text" name="departure" class="input-small" value="Departure date" />
+          <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small' %>
         </span>
         <%= submit_tag 'Search' %>
       <% end %>
