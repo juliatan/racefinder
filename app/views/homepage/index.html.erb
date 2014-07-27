@@ -44,18 +44,6 @@
 
 <div id="dot-matrix"></div>
 
-<!-- need to extract into its own JS file -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    // datepicker rails
-    $('.input-daterange').datepicker();
-
-    // to add £ sign to max budget dropdown menu
-    $('.price option').slice(1,4).prepend('£');
-
-  });
-</script>
-
 <!-- Angular carousel template overwrite to prevent pause on mouseover and remove bullets -->
 <script id="template/carousel/carousel.html" type="text/ng-template">
   <div ng-mouseenter="" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
@@ -74,4 +62,4 @@
     'left': direction=='next'
   }" class="item text-center" ng-transclude></div>
 </script>
-<!-- end of Angular carousel
+<!-- end of Angular carousel template overwrite -->
