@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if($('#map').length > 0) {
+  if($('#map').length > 0) { // only run this JS code if there is a map on the page
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
 
@@ -32,6 +32,7 @@ $(document).ready(function(){
           }
         });
 
+        // to ensure start and finish icons are positioned properly 
         var iconOffset = 0.0015;
 
         // Start line marker
