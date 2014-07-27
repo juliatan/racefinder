@@ -9,7 +9,8 @@ $(document).ready(function(){
         var map = new GMaps({
           div: '#map',
           lat: 0,
-          lng: 0
+          lng: 0,
+          zoom: 14
         });
 
         function locationPreference() {
@@ -32,7 +33,7 @@ $(document).ready(function(){
           }
         });
 
-        // to ensure start and finish icons are positioned properly 
+        // to ensure start and finish icons are positioned properly due to their shadows
         var iconOffset = 0.0015;
 
         // Start line marker
@@ -63,6 +64,7 @@ $(document).ready(function(){
           hotel.totalPrice = hotel.price * hotel.numberOfNights;
           hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
 
+          // determines walking time and distance to start line
           map.getRoutes({
             origin: [hotel.lat, hotel.long], //hotel coordinates
             destination: [locationPreference()[0], locationPreference()[1]], //start line coordinates
