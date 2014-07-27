@@ -41,7 +41,10 @@ $(document).ready(function(){
         map.addMarker({
           lat: marathon.startLat - iconOffset,
           lng: marathon.startLong,
-          icon: "/start_line_icon.png"
+          icon: "/start_line_icon.png",
+          infoWindow: {
+            content: 'Start line'
+          }
         });
 
         // Finish line marker
@@ -49,7 +52,10 @@ $(document).ready(function(){
           lat: marathon.finishLat - iconOffset,
           lng: marathon.finishLong,
           title: 'Finish Line',
-          icon: "/finish_line_icon.png"
+          icon: "/finish_line_icon.png",
+          infoWindow: {
+            content: 'Finish line'
+          }
         });
 
         // Hotel markers
@@ -138,6 +144,7 @@ $(document).ready(function(){
                   }, 50)
                 },
                 infoWindow: {
+                  maxWidth: 400,
                   content: 
                     '' // necessary to enable mustache template to be rendered
                   } //infoWindow
