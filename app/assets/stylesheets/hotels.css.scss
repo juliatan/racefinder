@@ -1,10 +1,23 @@
-.hotel-info-container h3{
+.hotel-info-container h3 {
   font-weight: lighter;
-  border-bottom: solid 1px lightgrey;
+  border-bottom: dotted 1px lightgrey;
   padding-bottom: 10px;
   margin-top: 0;
 }
 
+.hotel-info-container h3 span {
+  color: #FFCC00;
+  font-size: 15px;
+  float: right;
+}
+
+table .amenities {
+  padding-left: 20px;
+}
+
+.amenities i {
+  padding-right: 5px;
+}
 
 
 /* - - - IMAGES CAROUSEL - - - */

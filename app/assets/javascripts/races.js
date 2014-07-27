@@ -144,7 +144,7 @@ $(document).ready(function(){
                   }, 50)
                 },
                 infoWindow: {
-                  maxWidth: 400,
+                  maxWidth: 700,
                   content: 
                     '' // necessary to enable mustache template to be rendered
                   } //infoWindow
