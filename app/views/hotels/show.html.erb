@@ -1,11 +1,3 @@
-<div id='map' 
-	data-marathon="<%= params[:marathon] %>"
-	data-preferred-location="<%= params[:preferred_location] %>"
-  data-price="<%= params[:price] %>"
-	data-arrival="<%= params[:arrival] %>"
-	data-departure="<%= params[:departure] %>"
-></div>
-
 <template class="hotel-info">
   <div id="slider1_container">
     <div id="slides" u="slides"><div>
@@ -34,3 +26,12 @@
   <h3>{{ breakfast }}</h3>
   <h3>{{ wifi }}</h3>
 </template>
+
+<div class='holder'></div>
+
+<script>
+
+  $(document).ready(function() {
+    getHotel()
+  });
+</script>

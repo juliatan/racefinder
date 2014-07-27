@@ -15,4 +15,5 @@
 //= require gmaps
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
+//= require mustache
 //= require_tree .

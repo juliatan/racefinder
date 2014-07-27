@@ -15,4 +15,8 @@ class HotelsController < ApplicationController
     
     @city_hotels_selected = @city_hotels_within_budget.where(ref_lat: @ref_lat)
   end
+
+  def show
+  end
+
 end
