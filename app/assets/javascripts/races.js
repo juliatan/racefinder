@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if($('#map').length > 0) {
+  if($('#map').length > 0) { // only run this JS code if there is a map on the page
 
     $.get('/races.json?marathon=' + $('#map').data('marathon'), function(marathon){
 
@@ -9,8 +9,10 @@ $(document).ready(function(){
         var map = new GMaps({
           div: '#map',
           lat: 0,
-          lng: 0
-        });        
+          lng: 0,
+          zoom: 14,
+          styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill"},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#7dcdcd"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]}]
+        });
 
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
@@ -32,6 +34,7 @@ $(document).ready(function(){
           }
         });
 
+        // to ensure start and finish icons are positioned properly due to their shadows
         var iconOffset = 0.0015;
 
         // Start line marker
@@ -69,6 +72,7 @@ $(document).ready(function(){
           hotel.totalPrice = hotel.price * hotel.numberOfNights;
           hotel.totalPriceFormatted = (Math.round(hotel.totalPrice*100)/100).toFixed(2);
 
+          // determines walking time and distance to start line
           map.getRoutes({
             origin: [hotel.lat, hotel.long], //hotel coordinates
             destination: [locationPreference()[0], locationPreference()[1]], //start line coordinates
