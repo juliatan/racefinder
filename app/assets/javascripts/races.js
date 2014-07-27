@@ -81,7 +81,6 @@ $(document).ready(function(){
               var km = Math.round(metres*100)/100;
               hotel.minutes = minutes;
               hotel.km = km;
-              var userPreference = $('#map').data('preferred-location').toLowerCase();
 
               // for each hotel adds a marker to the map, filtered by user selection
               map.addMarker({
@@ -115,7 +114,7 @@ $(document).ready(function(){
                     ' nights</p><p>' + hotel.gym + 
                     '</p><p>' + hotel.breakfast + 
                     '</p><p>' + hotel.wifi + 
-                    '</p><p>' + hotel.minutes + ' minutes walk from ' + userPreference + ' (' + hotel.km + ' km)</p>'
+                    '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
                   } //infoWindow
               }); //map.addMarker
 
