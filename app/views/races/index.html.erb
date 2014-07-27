@@ -7,30 +7,39 @@
 ></div>
 
 <template class="hotel-info">
-  <div id="slider1_container">
-    <div id="slides" u="slides"><div>
-      <img class="hotel-photo" src="{{ image1 }}"/>
+  <div class="hotel-info-container">
+    <div id="slider1_container">
+      <div id="slides" u="slides">
+        <div>
+          <img class="hotel-photo" src="{{ image1 }}"/>
+        </div>
+        <div>
+          <img class="hotel-photo" src="{{ image2 }}"/>
+        </div>
+        <div>
+          <img class="hotel-photo" src="{{ image3 }}"/>
+        </div>
+        <div>
+          <img class="hotel-photo" src="{{ image4 }}"/>
+        </div>
+      </div>
+      <span u="arrowleft" class="jssora03l" style="width: 55px; height: 55px; top: 105px; left: 8px;"></span>
+      <span u="arrowright" class="jssora03r" style="width: 55px; height: 55px; top: 105px; right: 8px"></span>
     </div>
-    <div>
-      <img class="hotel-photo" src="{{ image2 }}"/>
-    </div>
-    <div>
-      <img class="hotel-photo" src="{{ image3 }}"/>
-    </div>
-    <div>
-      <img class="hotel-photo" src="{{ image4 }}"/>
-    </div>
+    <h3>{{ name }}<span>★★★★☆</span></h3>
+    <!-- <p>{{ address }}</p> -->
+    <!-- <p>Rating: {{ rating }}</p> -->
+    <table>
+      <td class="info">
+        <p><b>£{{ priceFormatted }}</b> per night</p>
+        <p><b>£{{ totalPriceFormatted }}</b> for {{ numberOfNights }} nights</p>
+        <p><b>{{ minutes }} min</b> walk from start line ({{ km }} km)</p>
+      </td>
+      <td class="amenities">
+        <p><i class="fa fa-heart"></i> {{ gym }}</p>
+        <p><i class="fa fa-coffee"></i> {{ breakfast }}</p>
+        <p><i class="fa fa-rss"></i> {{ wifi }}</p>
+      </td>
+    </table>
   </div>
-  <span u="arrowleft" class="jssora03l" style="width: 55px; height: 55px; top: 75px; left: 8px;"></span>
-  <span u="arrowright" class="jssora03r" style="width: 55px; height: 55px; top: 75px; right: 8px"></span>
-  </div>
-  <h1>{{ name }}</h1>
-  <p>{{ address }}</p>
-  <p>Rating: {{ rating }}</p>
-  <p>Price per night: £ {{ priceFormatted }}</p>
-  <p>£{{ totalPriceFormatted }} for {{ numberOfNights }} nights</p>
-  <p>{{ minutes }} minutes walk from start line ({{ km }} km)</p>
-  <p>{{ gym }}</p>
-  <p>{{ breakfast }}</p>
-  <p>{{ wifi }}</p>
 </template>

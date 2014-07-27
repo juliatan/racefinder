@@ -1,5 +1,27 @@
+.hotel-info-container {
+  padding-left: 15px;
+}
 
+.hotel-info-container h3 {
+  font-weight: lighter;
+  border-bottom: dotted 1px lightgrey;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
 
+.hotel-info-container h3 span {
+  color: #FFCC00;
+  font-size: 15px;
+  float: right;
+}
+
+table .amenities {
+  padding-left: 40px;
+}
+
+.amenities i {
+  padding-right: 5px;
+}
 
 
 /* - - - IMAGES CAROUSEL - - - */
@@ -23,7 +45,7 @@
 }
 
 
-.jssora03l { background-position: -3px -33px;}
+.jssora03l { background-position: -3px -33px; }
 .jssora03r { background-position: -63px -33px; }
 .jssora03l:hover { background-position: -123px -33px; }
 .jssora03r:hover { background-position: -183px -33px; }
@@ -34,15 +56,15 @@
   position: relative;
   top: 0px;
   left: 0px;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
 }
 
 #slides {
 	position: absolute;
 	overflow: hidden;
 	left: 0px;
-	top: 0px;
-	width: 300px;
-	height: 200px;
+	top: 20px;
+	width: 400px;
+	height: 270px;
 }
