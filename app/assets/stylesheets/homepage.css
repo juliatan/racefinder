@@ -2,8 +2,8 @@
 
 body {
 	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
-	background: url('berlin.jpg') no-repeat fixed center;
-	background-size: 100%;
+	/*background: url('berlin.jpg') no-repeat fixed center;*/
+	/*background-size: 100%;*/
 }
 
 #dot-matrix {
@@ -16,13 +16,14 @@ body {
   opacity: 0.2;
 }
 
-/*div.carousel-inner img {
-	width: 100%;
-	z-index: 900;
-	position: absolute;
-	top: 0;
-	left: 0;
-}*/
+/* carousel images */
+div.ng-scope img {
+	height: 100%;
+	z-index: -2;
+	position: fixed;
+	top: 0; /* makes header overlap background image */
+	left: 0; /* takes away sliding transition effect???! */
+}
 
 /* overwrite bootstrap carousel controllers */
 .carousel-control {
@@ -37,9 +38,9 @@ div.container {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	position: relative;
-	top: -150px;
-	z-index: 950;
+	position: absolute;
+	top: 0;
+	z-index: 2;
 }
 
 menu {
@@ -88,12 +89,14 @@ input {
 	width: 100px;
 }
 
-.marathon:hover > i, .selection:hover > i {
-	color: #A30000;
-}
-
+/* for mouseover effect of font-awesome descending arrow */
 i {
 	transition: color 0.2s ease;
+}
+
+/* for mouseover effect of font-awesome descending arrow */
+.marathon:hover > i, .selection:hover > i {
+	color: #A30000;
 }
 
 .marathon, .selection {
@@ -110,6 +113,7 @@ i {
 	background-color: #F8F8F8;
 }
 
+/* nove the font awesome descending arrow icon 4px higher than default*/
 .fa-sort-desc {
 	position: relative;
 	top: -4px;
@@ -123,6 +127,7 @@ i {
 	border-right: 0;
 }
 
+/* search button */
 menu button {
 	border: none;
 	background-color: #A30000;
