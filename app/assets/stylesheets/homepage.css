@@ -16,21 +16,6 @@ body {
   opacity: 0.2;
 }
 
-header {
-	background-color: black;
-	width: 100%;
-	height: 60px;
-	text-align: center;
-	opacity: 0.9;
-}
-
-header img {
-	position: relative;
-	top: 10px;
-	left: 15px;
-	height: 54%;
-}
-
 /*div.carousel-inner img {
 	width: 100%;
 	z-index: 900;

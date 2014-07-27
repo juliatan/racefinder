@@ -16,8 +16,11 @@
   <!-- <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script> -->
 </head>
 <body>
-
-<%= yield %>
+  <header>
+    <%= link_to(image_tag("/assets/strides_logo_1.png", :alt => "Strides", :title => "Strides"), root_path) %>
+  </header>
+  
+  <%= yield %>
 
 </body>
 </html>
