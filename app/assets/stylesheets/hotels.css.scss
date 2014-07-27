@@ -1,3 +1,7 @@
+.hotel-info-container {
+  padding-left: 15px;
+}
+
 .hotel-info-container h3 {
   font-weight: lighter;
   border-bottom: dotted 1px lightgrey;
@@ -60,7 +64,7 @@ table .amenities {
 	position: absolute;
 	overflow: hidden;
 	left: 0px;
-	top: 0px;
+	top: 20px;
 	width: 400px;
 	height: 270px;
 }
