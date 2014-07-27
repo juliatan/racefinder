@@ -11,7 +11,22 @@ json.array! @city_hotels_selected do |hotel|
   json.image2   hotel.image2
   json.image3   hotel.image3
   json.image4   hotel.image4
-  json.gym      hotel.gym
-  json.wifi     hotel.wifi
-  json.breakfast  hotel.breakfast
+  
+  if hotel.gym == true
+    json.gym      "Gym"
+  else
+    json.gym      "No gym"
+  end
+
+  if hotel.wifi == true
+    json.wifi     "Wifi"
+  else
+    json.wifi     "No wifi"
+  end
+
+  if hotel.breakfast == true
+    json.breakfast     "Breakfast option"
+  else
+    json.breakfast     "No breakfast option"
+  end
 end

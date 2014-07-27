@@ -10,7 +10,7 @@ $(document).ready(function(){
           div: '#map',
           lat: 0,
           lng: 0
-        });
+        });        
 
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
@@ -51,6 +51,13 @@ $(document).ready(function(){
 
         // Hotel markers
         hotels.forEach(function(hotel){
+
+          // renders mustache template for hotel popup
+          function getHotel(marker) {
+            var hotelProfile = Mustache.render($('.hotel-info').html(), hotel);
+            var popup = marker.infoWindow
+            popup.setContent(hotelProfile)
+          }
 
           var arrival = $('#map').data('arrival');
           var departure = $('#map').data('departure');
@@ -114,7 +121,9 @@ $(document).ready(function(){
                 icon: "/hotel_icon.png",
                 // hotel images carousel
                 click: function() {
-                  window.setTimeout(function(){                
+                  var thisMarker = this // the clicked marker for mustache
+                  window.setTimeout(function(){  
+                    getHotel(thisMarker)             
                     var options = {
                       $ArrowNavigatorOptions: {
                         $Class: $JssorArrowNavigator$,
@@ -126,19 +135,7 @@ $(document).ready(function(){
                 },
                 infoWindow: {
                   content: 
-                    '<div id="slider1_container"><div id="slides" u="slides"><div><img class="hotel-photo" src="' + hotel.image1 + 
-                    '" /></div><div><img class="hotel-photo" src="' + hotel.image2 + 
-                    '" /></div><div><img class="hotel-photo" src="' + hotel.image3 + 
-                    '" /></div><div><img class="hotel-photo" src="' + hotel.image4 + 
-                    '" /></div></div><span u="arrowleft" class="jssora03l" style="width: 55px; height: 55px; top: 75px; left: 8px;"></span><span u="arrowright" class="jssora03r" style="width: 55px; height: 55px; top: 75px; right: 8px"></span></div><p>' + hotel.name + 
-                    '</p><p>' + hotel.address + 
-                    '</p><p>Rating: ' + hotel.rating + 
-                    '</p><p>Price per night: £'+ hotel.priceFormatted + 
-                    '</p><p> £' + hotel.totalPriceFormatted + ' for ' + hotel.numberOfNights + 
-                    ' nights</p><p>' + checkForGym() + 
-                    '</p><p>' + checkForBreakfast() + 
-                    '</p><p>' + checkForWifi() + 
-                    '</p><p>' + hotel.minutes + ' minutes walk from start line (' + hotel.km + ' km)</p>'
+                    '' // necessary to enable mustache template to be rendered
                   } //infoWindow
               }); //map.addMarker
 
