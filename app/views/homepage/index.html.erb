@@ -1,73 +1,68 @@
-<!-- 
 <div ng-controller="CarouselCtrl">
-  <div style="height: 100%">
-    <carousel interval="carouselInterval"> -->
-
-      <div class="container">
-        <h1>Where will you conquer?</h1>
-        <p>Spend less time researching for marathons. Spend more time running.</p>
-        
-        <menu>
-          <%= form_tag(races_path, method: :get) do %>
-            <span class="marathon">
-              <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
-              <i class="fa fa-sort-desc"></i>
-            </span>
-
-            <span class="selection">
-              <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
-              <i class="fa fa-sort-desc"></i>
-            </span>
-
-            <span class="selection">
-              <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night', class: "price" %>
-              <i class="fa fa-sort-desc"></i>
-            </span>
-
-            <span class="input-daterange">
-              <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small arrival' %>
-              <!-- <span class="add-on">to</span> -->
-              <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small departure' %>
-            </span>
-            <button><i class="fa fa-search fa-lg"></i></button>
-          <% end %>
-        </menu>
-      </div>
-      <div id="dot-matrix"></div>
-
-<!--       <slide ng-repeat="slide in slides" active="slide.active">
-       <img ng-src="{{slide.imag e}}" style="margin:auto;">
+  <!-- <div style="height: 100%"> -->
+    <carousel interval="carouselInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
       </slide>
-
     </carousel>
-  </div>
-</div> -->
+  <!-- </div> -->
+</div>
 
+<div class="container">
+  <h1>Where will you conquer?</h1>
+  <p>Spend less time researching for marathons. Spend more time running.</p>
+  
+  <menu>
+    <%= form_tag(races_path, method: :get) do %>
+      <span class="marathon">
+        <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
+        <i class="fa fa-sort-desc"></i>
+      </span>
 
-<!-- datepicker rails -->
+      <span class="selection">
+        <%= select_tag :preferred_location, options_for_select(["Start line", "Finish line"]), prompt: 'Preferred location' %>
+        <i class="fa fa-sort-desc"></i>
+      </span>
 
+      <span class="selection">
+        <%= select_tag :price, options_for_select([100, 200, 300]), prompt: 'Max price per night', class: "price" %>
+        <i class="fa fa-sort-desc"></i>
+      </span>
+
+      <span class="input-daterange">
+        <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small arrival' %>
+        <!-- <span class="add-on">to</span> -->
+        <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small departure' %>
+      </span>
+
+      <!-- could not insert custom icon into standard rails search button -->
+      <button><i class="fa fa-search fa-lg"></i></button> 
+
+    <% end %>
+  </menu>
+</div>
+
+<div id="dot-matrix"></div>
+
+<!-- need to extract into its own JS file -->
 <script type="text/javascript">
   $(document).ready(function(){
+    // datepicker rails
     $('.input-daterange').datepicker();
 
     // to add £ sign to max budget dropdown menu
     $('.price option').slice(1,4).prepend('£');
 
-  })
+  });
 </script>
 
-<!-- end datepicker rails -->
-
-<!-- Angular carousel template overwrite to prevent pause on mouseover -->
+<!-- Angular carousel template overwrite to prevent pause on mouseover and remove bullets -->
 <script id="template/carousel/carousel.html" type="text/ng-template">
-        <div ng-mouseenter="" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
-    <ol class="carousel-indicators" ng-show="slides.length > 1">
-        <li ng-repeat="slide in slides track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>
-    </ol>
+  <div ng-mouseenter="" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
     <div class="carousel-inner" ng-transclude></div>
     <a class="left carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-left"></span></a>
     <a class="right carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>
+  </div>
 </script>
 
 <script id="template/carousel/slide.html" type="text/ng-template">
@@ -79,4 +74,4 @@
     'left': direction=='next'
   }" class="item text-center" ng-transclude></div>
 </script>
-<!-- end of Angular carousel -->
+<!-- end of Angular carousel

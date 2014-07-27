@@ -5,12 +5,29 @@ function CarouselCtrl($scope) {
   
   var slides = $scope.slides = [
     {
-      image: '/images/paris.jpg',
-      text: 'Paris'
+      image: '/images/paris1.jpg',
+      text: 'Paris',
+      caption: 'Paris, France'
     }, 
     {
-      image: '/images/stockholm.jpg',
-      text: 'Stockholm'
+      image: '/images/london.jpg',
+      text: 'London',
+      caption: 'Paris, France'
+    },
+    {
+      image: '/images/city.jpg',
+      text: 'City',
+      caption: 'Paris, France'
+    },
+    {
+      image: '/images/berlin.jpg',
+      text: 'Berlin',
+      caption: 'Paris, France'
+    },
+    {
+      image: '/images/sydney.jpg',
+      text: 'Sydney',
+      caption: 'Paris, France'
     }
   ];
 
