@@ -169,7 +169,7 @@ var GMaps = (function(global) {
         },
         zoomControlStyle = zoomControlOpt.style || 'DEFAULT',
         zoomControlPosition = zoomControlOpt.position || 'TOP_LEFT',
-        panControl = options.panControl || true,
+        panControl = options.panControl || false,
         mapTypeControl = options.mapTypeControl || true,
         scaleControl = options.scaleControl || true,
         streetViewControl = options.streetViewControl || true,

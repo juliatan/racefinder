@@ -6,3 +6,14 @@ html, body {
 #map {
 	min-height: 100%; 
 }
+
+.test {
+	width: 200px;
+	height: 200px;
+	background-color: black;
+	opacity: 0.8;
+	position: fixed;
+	top: 80%;
+	z-index: 1;
+	color: white;
+}
