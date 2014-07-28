@@ -21,7 +21,7 @@ def hotel_api_call_start_line
 
     max_rate.each do |rate|
 
-      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PRICE_REVERSE&maxRate=" + rate + "&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
+      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464791&minorRev=99&apiKey=t7sxcy7w8av2nexftnmffx66&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PRICE_REVERSE&maxRate=" + rate + "&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
 
       data = open(url).read
       @hotel_data = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
@@ -54,7 +54,7 @@ def hotel_api_call_finish_line
 
     max_rate.each do |rate|
 
-      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PRICE_REVERSE&maxRate=" + rate + "&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
+      url = "https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&latitude=" + latitude + "&longitude=" + longitude + "&minStarRating=4&searchRadius=5&searchRadiusUnit=KM&sort=PRICE_REVERSE&maxRate=" + rate + "&arrivalDate=" + current_date_formatted + "&departureDate=" + departure_date_formatted + "&numberOfResults=10"
     
       data = open(url).read
       @hotel_data = JSON.parse(data)["HotelListResponse"]["HotelList"]["HotelSummary"]
@@ -79,7 +79,7 @@ def create_hotel_with(hotel, latitude, longitude, race_id)
   tripadvisor_rating = hotel["tripAdvisorRating"]
   city = hotel["city"]
 
-  hotel_info_url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464671&minorRev=99&apiKey=rthjbmnexf9e6z7863ru5w9n&locale=en_US&currencyCode=GBP&hotelId=" + hotel_id.to_s
+  hotel_info_url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&hotelId=" + hotel_id.to_s
   hotel_data = open(hotel_info_url).read
   @hotel_info = JSON.parse(hotel_data)["HotelInformationResponse"]
 
