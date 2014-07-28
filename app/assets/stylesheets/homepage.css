@@ -18,11 +18,14 @@ body {
 
 /* carousel images */
 div.ng-scope img {
-	height: 100%;
+	min-height: 100%;
+	min-width: 1920px;
+	width: 100%;
+	height: auto;
 	z-index: -2;
 	position: fixed;
-	top: 0; /* makes header overlap background image */
-	left: 0; /* takes away sliding transition effect???! */
+	bottom: 0; /* makes header overlap background image */
+	right: 0; /* takes away sliding transition effect???! */
 }
 
 /* overwrite bootstrap carousel controllers */
