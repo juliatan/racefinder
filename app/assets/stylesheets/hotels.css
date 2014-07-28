@@ -42,8 +42,18 @@ table .amenities {
   display: block;
   background: url(a21.png) no-repeat;
   overflow:hidden;
+  width: 55px;
+  height: 55px;
+  top: 105px;
 }
 
+.jssora03l, .jssora03ldn {
+  left: 8px;
+}
+
+.jssora03r, .jssora03rdn {
+  right: 8px;
+}
 
 .jssora03l { background-position: -3px -33px; }
 .jssora03r { background-position: -63px -33px; }

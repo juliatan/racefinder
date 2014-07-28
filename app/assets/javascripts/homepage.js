@@ -14,11 +14,11 @@ function CarouselCtrl($scope) {
       text: 'London',
       caption: 'Paris, France'
     },
-    {
-      image: '/images/city.jpg',
-      text: 'City',
-      caption: 'Paris, France'
-    },
+    // {
+    //   image: '/images/city.jpg',
+    //   text: 'City',
+    //   caption: 'Paris, France'
+    // },
     {
       image: '/images/berlin.jpg',
       text: 'Berlin',
