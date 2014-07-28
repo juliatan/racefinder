@@ -1,9 +1,9 @@
 <div ng-controller="CarouselCtrl">
   <!-- <div style="height: 100%"> -->
     <carousel interval="carouselInterval">
-      <% ["paris1", "london", "berlin", "sydney"].each do |city| %>
+      <% ["paris", "london", "berlin", "sydney"].each do |city| %>
         <slide>
-          <%= image_tag "#{city}.jpg" %>
+          <%= image_tag "#{city}_bg.jpg" %>
         </slide>
       <% end %>
     </carousel>
