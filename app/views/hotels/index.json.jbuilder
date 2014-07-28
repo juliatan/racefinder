@@ -5,7 +5,7 @@ json.array! @city_hotels_selected do |hotel|
   json.lat      hotel.lat
   json.long     hotel.long
   json.price    hotel.price
-  json.rating   hotel.rating
+  json.rating   star_rating(hotel.rating)
   json.tripAdvisorRating  hotel.tripadvisor_rating
   json.image1   hotel.image1
   json.image2   hotel.image2

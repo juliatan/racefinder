@@ -30,6 +30,7 @@ $(document).ready(function(){
     var raceSelection = $('#marathon option:selected').text();
     var startDate = new Date(marathonStartDates[raceSelection]); // creates Date object from string
     
+    // think about refactoring this
     var arrivalDateObject = new Date(startDate.getTime() - 1000*60*60*24); // default is one day prior to marathon start date
     var arrivalDate = arrivalDateObject.getDate();
     var arrivalMonth = arrivalDateObject.getMonth() + 1; // .getMonth() method starts from Jan = 0
