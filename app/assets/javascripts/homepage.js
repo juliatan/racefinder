@@ -35,7 +35,9 @@ function CarouselCtrl($scope) {
 
 $(document).ready(function(){
   // datepicker rails
-  $('.input-daterange').datepicker();
+  $('.input-daterange').datepicker({
+    todayHighlight: true
+  });
 
   // to add £ sign to max budget dropdown menu
   $('.price option').slice(1,4).prepend('£');
