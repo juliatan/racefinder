@@ -55,4 +55,28 @@ $(document).ready(function(){
   // to add £ sign to max budget dropdown menu
   $('.price option').slice(1,4).prepend('£');
 
+  // prevent user from searching if form not filled in
+  $("button").click(function( event ) {
+    var marathon = document.forms["userOptions"]["marathon"].value;
+    var location = document.forms["userOptions"]["preferred_location"].value;
+    var price = document.forms["userOptions"]["price"].value;
+    var arrival = document.forms["userOptions"]["arrival"].value;
+    var departure = document.forms["userOptions"]["departure"].value;
+
+    if (marathon == "" || location == "" || price == "" || arrival == "" || departure == "") {
+      event.preventDefault();
+    }
+  });
+
+  // function validateForm() {
+  //   var x = document.forms["userOptions"]["marathon"].value;
+  //   if (x == "") {
+  //       // alert("First name must be filled out");
+
+  //       return false;
+        
+  //   }
+  // }
+
+
 });

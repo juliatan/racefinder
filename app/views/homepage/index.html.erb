@@ -11,9 +11,9 @@
 <div class="container">
   <h1>Where will you conquer?</h1>
   <p>Spend less time researching for marathons. Spend more time running.</p>
-  
+
   <menu>
-    <%= form_tag(races_path, method: :get) do %>
+    <%= form_tag(races_path, method: :get, name: "userOptions") do %>
       <span class="marathon">
         <%= select_tag :marathon, options_for_select(["Berlin", "London", "Stockholm", "Paris", "Sydney"]), prompt: 'Select your marathon...' %>
         <i class="fa fa-sort-desc"></i>
@@ -43,6 +43,7 @@
 </div>
 
 <div id="dot-matrix"></div>
+
 
 <!-- Angular carousel template overwrite to prevent pause on mouseover and remove bullets -->
 <script id="template/carousel/carousel.html" type="text/ng-template">
