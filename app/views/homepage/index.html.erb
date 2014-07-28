@@ -1,9 +1,11 @@
 <div ng-controller="CarouselCtrl">
   <!-- <div style="height: 100%"> -->
     <carousel interval="carouselInterval">
-      <slide ng-repeat="slide in slides" active="slide.active">
-        <img ng-src="{{slide.image}}" style="margin:auto;">
-      </slide>
+      <% ["paris1", "london", "berlin", "sydney"].each do |city| %>
+        <slide>
+          <%= image_tag "#{city}.jpg" %>
+        </slide>
+      <% end %>
     </carousel>
   <!-- </div> -->
 </div>
@@ -29,8 +31,8 @@
         <i class="fa fa-sort-desc"></i>
       </span>
 
-      <span class="input-daterange">
-        <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small arrival' %>
+      <span class="input-daterange" data-date=''>
+        <%= text_field_tag :arrival, nil, placeholder: 'Arrival', class: 'input-small arrival', value: '' %>
         <!-- <span class="add-on">to</span> -->
         <%= text_field_tag :departure, nil, placeholder: 'Departure', class: 'input-small departure' %>
       </span>
