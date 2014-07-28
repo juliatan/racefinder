@@ -32,6 +32,7 @@ function CarouselCtrl($scope) {
   // ];
 
 };
+CarouselCtrl.$inject = ['$scope'];
 
 $(document).ready(function(){
   // datepicker rails
