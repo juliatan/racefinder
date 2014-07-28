@@ -1,13 +1,11 @@
 <div ng-controller="CarouselCtrl">
-  <!-- <div style="height: 100%"> -->
-    <carousel interval="carouselInterval">
-      <% ["paris", "london", "berlin", "sydney"].each do |city| %>
-        <slide>
-          <%= image_tag "#{city}_bg.jpg" %>
-        </slide>
-      <% end %>
-    </carousel>
-  <!-- </div> -->
+  <carousel interval="carouselInterval">
+    <% ["paris", "london", "berlin", "sydney"].each do |city| %>
+      <slide>
+        <%= image_tag "#{city}_bg.jpg" %>
+      </slide>
+    <% end %>
+  </carousel>
 </div>
 
 <div class="container">

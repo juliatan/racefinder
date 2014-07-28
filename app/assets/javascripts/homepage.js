@@ -1,38 +1,13 @@
+// start of Angular carousel code
 angular.module("strides",['ui.bootstrap']);
 
 function CarouselCtrl($scope) {
   $scope.carouselInterval = 6000;
-  
-  // var slides = $scope.slides = [
-  //   {
-  //     image: '/images/paris_bg.jpg',
-  //     text: 'Paris',
-  //     caption: 'Paris, France'
-  //   }, 
-  //   {
-  //     image: '/images/london_bg.jpg',
-  //     text: 'London',
-  //     caption: 'London, UK'
-  //   },
-  //   // {
-  //   //   image: '/images/city.jpg',
-  //   //   text: 'City',
-  //   //   caption: 'Paris, France'
-  //   // },
-  //   {
-  //     image: '/images/berlin_bg.jpg',
-  //     text: 'Berlin',
-  //     caption: 'Berlin, Germany'
-  //   },
-  //   {
-  //     image: '/images/sydney_bg.jpg',
-  //     text: 'Sydney',
-  //     caption: 'Sydney, Australia'
-  //   }
-  // ];
-
+  // Note: photos had to be removed from here into the .html page direct to use rails image tags
 };
-CarouselCtrl.$inject = ['$scope'];
+
+CarouselCtrl.$inject = ['$scope']; // necessary to stop Heroku from minifying $scope variable
+// end of Angular carousel code
 
 $(document).ready(function(){
   // datepicker rails
