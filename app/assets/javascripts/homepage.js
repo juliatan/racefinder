@@ -5,14 +5,14 @@ function CarouselCtrl($scope) {
   
   var slides = $scope.slides = [
     {
-      image: '/images/paris1.jpg',
+      image: '/images/paris_bg.jpg',
       text: 'Paris',
       caption: 'Paris, France'
     }, 
     {
-      image: '/images/london.jpg',
+      image: '/images/london_bg.jpg',
       text: 'London',
-      caption: 'Paris, France'
+      caption: 'London, UK'
     },
     // {
     //   image: '/images/city.jpg',
@@ -20,14 +20,14 @@ function CarouselCtrl($scope) {
     //   caption: 'Paris, France'
     // },
     {
-      image: '/images/berlin.jpg',
+      image: '/images/berlin_bg.jpg',
       text: 'Berlin',
-      caption: 'Paris, France'
+      caption: 'Berlin, Germany'
     },
     {
-      image: '/images/sydney.jpg',
+      image: '/images/sydney_bg.jpg',
       text: 'Sydney',
-      caption: 'Paris, France'
+      caption: 'Sydney, Australia'
     }
   ];
 
