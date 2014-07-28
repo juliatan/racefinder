@@ -99,30 +99,6 @@ $(document).ready(function(){
               hotel.minutes = minutes;
               hotel.km = km;
 
-              //amenities
-              function checkForGym(){
-                if (hotel.gym === true) {
-                  return "gym"
-                } else {
-                  return "no gym"
-                }
-              };
-              function checkForWifi(){
-                if (hotel.wifi === true) {
-                  return "internet access"
-                } else {
-                  return "no internet access"
-                }
-              };
-              function checkForBreakfast(){
-                if (hotel.gym === true) {
-                  return "breakfast included"
-                } else {
-                  return "breakfast not included"
-                }
-              }
-              //end amenities
-
               // for each hotel adds a marker to the map, filtered by user selection
               map.addMarker({
                 lat: hotel.lat,
