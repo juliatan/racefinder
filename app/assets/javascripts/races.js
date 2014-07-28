@@ -47,6 +47,16 @@ $(document).ready(function(){
           }
         });
 
+        // Link to start line marker
+        $('.start').click(function() {
+          map.setCenter(marathon.startLat, marathon.startLong)
+        })
+
+        // Link to finish line marker
+        $('.finish').click(function() {
+          map.setCenter(marathon.finishLat, marathon.finishLong)
+        })
+
         // Finish line marker
         map.addMarker({
           lat: marathon.finishLat - iconOffset,

@@ -1,3 +1,9 @@
+<menu class="map-menu">
+  <h2>MENU</h2>
+  <p class="start">Take me to start line</p>
+  <p class="finish">Take me to finish line</p>
+</menu>
+
 <div id='map' 
 	data-marathon="<%= params[:marathon] %>"
 	data-preferred-location="<%= params[:preferred_location] %>"
@@ -26,7 +32,14 @@
       <span u="arrowleft" class="jssora03l" ></span>
       <span u="arrowright" class="jssora03r"></span>
     </div>
-    <h3>{{ name }}<span>★★★★☆</span></h3>
+    <table class="hotel-header">
+      <td class="hotel-name">
+        <h3>{{ name }}</h3>
+      </td>
+      <td class="hotel-rating">
+        <p>★★★★☆</p>
+      </td>
+    </table>
     <!-- <p>{{ address }}</p> -->
     <!-- <p>Rating: {{ rating }}</p> -->
     <table>

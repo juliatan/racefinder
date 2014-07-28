@@ -5,4 +5,18 @@ html, body {
 
 #map {
 	min-height: 100%; 
+	top: 60px;
+}
+
+.map-menu {
+	width: 200px;
+	height: 150px;
+	background-color: black;
+	opacity: 0.8;
+	position: fixed;
+	top: 40%;
+	z-index: 1;
+	color: white;
+	padding: 10px 25px;
+	left: -5px;
 }
