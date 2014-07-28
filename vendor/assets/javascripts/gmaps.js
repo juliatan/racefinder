@@ -619,7 +619,7 @@ GMaps.prototype.createMarker = function(options) {
     })(this.map, marker, marker_events_with_mouse[ev]);
   }
 
-  google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, 'click', function(e,x,y) {
     this.details = details;
 
     if (options.click) {
