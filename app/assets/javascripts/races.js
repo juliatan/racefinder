@@ -14,6 +14,17 @@ $(document).ready(function(){
           styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill"},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#7dcdcd"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]}]
         });
 
+        $.get('/routes.json', function(races) {
+          var raceName = $('#map').data('marathon')
+
+          map.drawPolyline({
+            path: races[raceName],
+            strokeColor: '#2A80B9',
+            strokeOpacity: 0.6,
+            strokeWeight: 6
+          });
+        });
+
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
             return [marathon.startLat, marathon.startLong]
