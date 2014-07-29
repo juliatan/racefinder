@@ -71,7 +71,7 @@
       <table class="email">
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
         <td><p>
-          <a href="/hotels/{{ id }}/mailer" data-method='post'>Email itinerary</a>
+          <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>Email itinerary</a>
         </p></td>
       </table>
     <% end %>
