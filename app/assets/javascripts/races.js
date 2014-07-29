@@ -14,16 +14,32 @@ $(document).ready(function(){
           styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill"},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"color":"#7dcdcd"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]}]
         });
 
-        $.get('/routes.json', function(races) {
-          var raceName = $('#map').data('marathon')
+        // Shows and hides a marathon route
+          $.get('/routes.json', function(races) {
+            var raceName = $('#map').data('marathon')
 
-          map.drawPolyline({
-            path: races[raceName],
-            strokeColor: '#2A80B9',
-            strokeOpacity: 0.6,
-            strokeWeight: 6
+            var marathonRoute = map.drawPolyline({
+              path: races[raceName],
+              strokeColor: '#2A80B9',
+              strokeOpacity: 0.6,
+              strokeWeight: 6
+            });
+
+            $('.route-checkbox').click(function(){
+              if ($('.route-checkbox').is(':checked')) {
+                marathonRoute.setVisible(true)
+              } else {
+                marathonRoute.setVisible(false)
+              }
+            })
+
           });
-        });
+        
+        // if ($('.route-checkbox').is(':checked')) {
+        //   console.log('checked')
+        // };
+        
+        
 
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
@@ -46,21 +62,22 @@ $(document).ready(function(){
         });
 
         // Map controls menu
-        $('.map-controls').hide();
-        $('.map-menu').mouseenter(function() {
-          $(this).find('.map-controls').slideToggle(300)
+        // $('.map-controls').hide();
+        // $('.map-menu').mouseenter(function() {
+        //   $(this).find('.map-controls').slideToggle(300)
 
-          // prevents text being selected on double click
-          document.ondblclick = function(evt) {
-            if (window.getSelection)
-                window.getSelection().removeAllRanges();
-            else if (document.selection)
-                document.selection.empty();
-          }
-        });
-        $('.map-menu').mouseleave(function() {
-          $(this).find('.map-controls').slideToggle(300)
-        });
+        //   // prevents text being selected on double click
+        //   document.ondblclick = function(evt) {
+        //     if (window.getSelection)
+        //         window.getSelection().removeAllRanges();
+        //     else if (document.selection)
+        //         document.selection.empty();
+        //   }
+        // });
+
+        // $('.map-menu').mouseleave(function() {
+        //   $(this).find('.map-controls').slideToggle(300)
+        // });
 
         $('.map-menu .fa-plus-square').click(function(){
           map.zoomIn()

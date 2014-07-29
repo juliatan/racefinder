@@ -54,3 +54,10 @@ html, body {
 .map-menu .fa-plus-square, .map-menu .fa-minus-square {
 	padding-right: 15px;
 }
+
+label[for="checkbox"] {
+	font-weight: 300;
+	padding-left: 15px;
+}
+
+

@@ -72,23 +72,23 @@ menu {
 	font-size: 1.2em;
 }
 
-select, input {
+span select, span input {
 	height: 58px;
 	background-color: transparent; /* needed to set height of fields */
 	border-style: none;
-	outline: none; /* needed to remove focus colour when selected */
+	outline: none;  needed to remove focus colour when selected 
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-webkit-appearance: none; /* removes default styling of form elements */
 	padding: 0 10px;
 	margin: 0;
-}
+} 
 
-select {
+span select {
 	cursor: pointer;
 }
 
-input {
+span input {
 	width: 100px;
 }
 
