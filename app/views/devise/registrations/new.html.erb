@@ -15,6 +15,9 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
+  <div><%= f.label :phone_number %><br />
+  <%= f.text_field :phone_number, autofocus: true, placeholder: "Optional" %></div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
