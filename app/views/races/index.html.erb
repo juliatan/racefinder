@@ -63,11 +63,26 @@
       </td>
     </table>
 
-      <!-- <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>"target="_blank" data-method='post'> -->
-        <p class="book-hotel">Book this hotel</p>
+      <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
+    <table>
+      <p class="book-hotel">Book this hotel</p>
+      <td class="sms">
+        <p>
+          <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post' style="margin-right:15px;">
+            <i class="fa fa-mobile-phone fa-lg"></i>
+            SMS me the details 
+          </a>
+        </p>
+      </td>
+      <td class="email">
+        <p>
+          <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>
+            <i class="fa fa-envelope"></i> 
+            Email me the itinerary
+          </a>
+        </p>
+      </td>
+    </table>
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
-      <!-- </a> -->
-
-
   </div>
 </template>

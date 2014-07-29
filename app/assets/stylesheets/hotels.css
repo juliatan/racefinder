@@ -42,7 +42,7 @@ table .amenities {
   text-align: center;
   height: 40px;
   text-decoration: none;
-  margin: 25px 0px 30px 0px;
+  margin: 25px 0px 20px 0px;
   border-radius: 2px;
   font-size: 1.3em;
   font-weight: lighter;
@@ -66,11 +66,14 @@ table .amenities {
 
 .book-hotel a {
   color: white;
-
 }
 
 .book-hotel p:hover, a:-webkit-any-link:hover {
   text-decoration: none;
+}
+
+.email i, .sms i {
+  margin-right: 3px;
 }
 
 /* - - - IMAGES CAROUSEL - - - */

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :races
   resources :hotels do
     resources :messages # messages are specific to each hotel
+    resources :mailer
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
