@@ -13,4 +13,15 @@ describe 'user registration/login' do
 		end
 		expect(page).to have_content 'Where will you conquer, Maggie?'
 	end
+
+	it 'can sign in' do
+		User.create(name:'Bob', email:'b@b.com', password: '12345678', password_confirmation: '12345678')
+		visit '/users/sign_in'
+			within '.new_user' do
+			fill_in 'Email', with: 'b@b.com'
+			fill_in 'Password', with: '12345678'
+			click_button 'Sign in'
+		end
+		expect(page).to have_content 'Where will you conquer, Bob?'
+	end
 end
