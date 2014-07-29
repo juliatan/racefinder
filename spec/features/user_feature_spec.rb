@@ -24,4 +24,13 @@ describe 'user registration/login' do
 		end
 		expect(page).to have_content 'Where will you conquer, Bob?'
 	end
+
+	it 'can sign out' do
+		bob = User.create(name:'Bob', email:'b@b.com', password: '12345678', password_confirmation: '12345678')
+		login_as bob 
+		visit '/'
+		click_link 'Sign out'
+		expect(current_path).to eq '/'
+		expect(page).to have_content 'Where will you conquer?'
+	end
 end
