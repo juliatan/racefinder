@@ -14,9 +14,10 @@ describe 'user registration/login' do
 		expect(page).to have_content 'Where will you conquer, Maggie?'
 	end
 
-	it 'can sign in' do
+	it 'can sign in from the homepage' do
 		User.create(name:'Bob', email:'b@b.com', password: '12345678', password_confirmation: '12345678')
-		visit '/users/sign_in'
+		visit '/'
+			click_link 'Sign in'
 			within '.new_user' do
 			fill_in 'Email', with: 'b@b.com'
 			fill_in 'Password', with: '12345678'
@@ -32,5 +33,20 @@ describe 'user registration/login' do
 		click_link 'Sign out'
 		expect(current_path).to eq '/'
 		expect(page).to have_content 'Where will you conquer?'
+	end
+
+	it 'only shows sign out when the user is logged in' do
+		bob = User.create(name:'Bob', email:'b@b.com', password: '12345678', password_confirmation: '12345678')
+		login_as bob
+		visit '/'
+		expect(page).not_to have_content 'Sign in'
+		expect(page).to have_content 'Sign out'
+	end
+
+	it 'shows sign in and sign up when the user is not logged in' do
+		visit '/'
+		expect(page).to have_content 'Sign in'
+		expect(page).to have_content 'Sign up'
+		expect(page).not_to have_content 'Sign out'
 	end
 end
