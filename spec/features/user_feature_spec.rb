@@ -49,7 +49,7 @@ describe 'user registration/login' do
 			expect(page).not_to have_content 'Sign out'
 		end
 
-		it 'cannot sign up without name' do
+		it 'cannot sign up without name', js:true do
 			visit '/users/sign_up'
 			within '.new_user' do
 				fill_in 'Email', with: 'test@example.com'
@@ -57,8 +57,7 @@ describe 'user registration/login' do
 				fill_in 'Password confirmation', with: '12345678'
 				click_button 'Sign up'
 			end	
-			expect(current_path).to eq '/users'
-			expect(page).to have_content 'Cannot sign up without name'
+			expect(current_path).to eq '/users/sign_up'
 		end
 	end
 
