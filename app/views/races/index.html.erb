@@ -50,7 +50,6 @@
       </td>
     </table>
     <!-- <p>{{ address }}</p> -->
-    <!-- <p>Rating: </p> -->
     <table>
       <td class="info">
         <p><b>£{{ price }}</b> per night</p>
@@ -62,6 +61,10 @@
         <p><i class="fa fa-coffee"></i> {{ breakfast }}</p>
         <p><i class="fa fa-rss"></i> {{ wifi }}</p>
       </td>
+    </table>
+    <table>
+      <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
+      <td><a href='/hotels/{{ id }}/messages' data-method='post'>SMS me the details</a></td>
     </table>
   </div>
 </template>
