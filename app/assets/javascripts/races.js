@@ -54,6 +54,14 @@ $(document).ready(function(){
           $(this).find('.map-controls').slideToggle(300)
         });
 
+        $('.map-menu .fa-plus-square').click(function(){
+          map.zoomIn()
+        });
+
+        $('.map-menu .fa-minus-square').click(function(){
+          map.zoomOut()
+        });
+
         // to ensure start and finish icons are positioned properly due to their shadows
         var iconOffset = 0.0015;
 
