@@ -16,19 +16,19 @@ html, body {
 
 .map-menu {
 	background-color: black;
-	opacity: 0.8;
+	opacity: 0.85;
 	z-index: 1;
 	float: right;
 	position: relative;
 	top: 80px;
 	color: white;
 	padding: 10px 25px;
+	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
+	font-weight: lighter;
 }
 
 .map-menu h3 {
 	font-size: 1.6em;
-	font-weight: lighter;
-	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
 	margin-top: 5px;
 }
 
@@ -40,8 +40,13 @@ html, body {
 .map-menu p {
 	cursor: pointer;
 	transition: color 0.5s ease;
+	font-size: 1.2em;
 }
 
 .map-menu p:hover {
 	color: #66cccc;
+}
+
+.map-menu .fa-angle-down {
+	margin-left: 10px;
 }
