@@ -125,6 +125,7 @@ $(document).ready(function(){
                 lat: hotel.lat,
                 lng: hotel.long,
                 title: hotel.name,
+                animation: google.maps.Animation.DROP,
                 icon: "/hotel_icon.png",
                 // hotel images carousel
                 click: function() {
