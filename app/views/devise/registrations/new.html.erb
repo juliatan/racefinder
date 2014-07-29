@@ -1,27 +1,35 @@
-<h2>Sign up</h2>
+<div id="dot-matrix"></div>
+<div class="background">
+  <div class="user-container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <h2>Sign up</h2>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %></div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+      <div><%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <div><%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :phone_number %><br />
-  <%= f.text_field :phone_number, autofocus: true, placeholder: "Optional" %></div>
+      <div><%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.submit "Sign up", class: 'signup-button'%></div>
-<% end %>
+      <div><%= f.label :phone_number %><br />
+      <%= f.text_field :phone_number, autofocus: true, placeholder: "Optional" %></div>
 
-<%= render "devise/shared/links" %>
+      <div><%= f.submit "Sign up", class: 'signup-button'%></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+  </div>
+</div>
+
 
 <script>
 $(document).ready(function(){
