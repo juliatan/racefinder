@@ -4,16 +4,16 @@
   <%= devise_error_messages! %>
 
   <div><%= f.label :name %><br />
-  <%= f.text_field :name, autofocus: true %></div>
+  <%= f.text_field :name, autofocus: true, class: 'signup-name' %></div>
 
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= f.email_field :email, autofocus: true, class: 'signup-email' %></div>
 
   <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <%= f.password_field :password, autocomplete: "off", class: 'signup-password' %></div>
 
   <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'signup-password-confirmation' %></div>
 
   <div><%= f.label :phone_number %><br />
   <%= f.text_field :phone_number, autofocus: true, placeholder: "Optional" %></div>
@@ -21,20 +21,77 @@
   <div><%= f.submit "Sign up", class: 'signup-button'%></div>
 <% end %>
 
+<div class='elem-demo'>Hello</div>
+
 <%= render "devise/shared/links" %>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script src="/assets/notify.js"></script>
 
 <script>
 $(document).ready(function(){
 
-  $(".signup-button").click(function( event ) {
-      var name = document.forms["new_user"]["user_name"].value;
+  // $(".signup-button").click(function( event ) {
+  //     var name = document.forms["new_user"]["user_name"].value;
       
-      if (name == "") {
-        event.preventDefault();
-        $('#user_name').addClass('empty_field');
-        $('#user_name').attr('placeholder', 'Please enter your name');
-      }
-    });
+  //     if (name == "") {
+  //       event.preventDefault();
+  //       $('#user_name').addClass('empty_field');
+  //       $('#user_name').attr('placeholder', 'Please enter your name');
+  //     }
+  //   });
 
-  })
+      $('.signup-button').click(function(event){
+        var name = document.forms["new_user"]["user_name"].value;
+        var email = document.forms["new_user"]["user_email"].value;
+        var password = document.forms["new_user"]["user_password"].value;
+        var password_confirmation = document.forms["new_user"]["user_password_confirmation"].value;
+
+        // a popup appears if the name is empty
+        if (name == "") {
+          event.preventDefault();
+          $('.signup-name').notify(
+            "Please enter your name", 
+            { position:"right" }
+          );
+        }
+
+        // a popup appears if the email is empty
+        if (email == "") {
+          event.preventDefault();
+          $('.signup-email').notify(
+            "Please enter your email", 
+            { position:"right" }
+          );
+        }
+
+        // a popup appears if the password is empty
+        if (password == "") {
+          event.preventDefault();
+          $('.signup-password').notify(
+            "Please enter the password", 
+            { position:"right" }
+          );
+        }
+
+        // a popup appears if the password confirmation is empty
+        if (password == "") {
+          event.preventDefault();
+          $('.signup-password-confirmation').notify(
+            "Please enter the password again", 
+            { position:"right" }
+          );
+        }
+
+        // a popup appears if the passwords don't match
+        if (password !== password_confirmation) {
+          event.preventDefault();
+          $('.signup-password-confirmation').notify(
+            "The passwords don't match", 
+            { position:"right" }
+          );
+        }
+
+      }); // $('.signup-button').click(function(event){
+
+  }) // document ready
 </script>
