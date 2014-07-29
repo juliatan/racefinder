@@ -16,4 +16,9 @@ class HotelsController < ApplicationController
     @city_hotels_selected = @city_hotels_within_budget.where(ref_lat: @ref_lat)
   end
 
+  def send_itinerary
+    # @hotel  = Hotel.find params[:hotel_id]
+    Mailer.confirmation(self).deliver
+  end
+
 end

@@ -68,6 +68,12 @@
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
         <td><p><a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>SMS me the details</a></p></td>
       </table>
+      <table class="email">
+        <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
+        <td><p>
+          <a href="/hotels/{{ id }}/mailer" data-method='post'>Email itinerary</a>
+        </p></td>
+      </table>
     <% end %>
 
   </div>
