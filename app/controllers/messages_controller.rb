@@ -15,10 +15,10 @@ class MessagesController < ApplicationController
     @client.account.messages.create(
       :from => from,
       :to => '+447789223025',
-      :body => "Strides booking made at #{time.strftime("%H:%M:%S")}. Hotel: #{@hotel.name}, Address: #{@hotel.address}, Phone: phone, Check in: date, Check out: date"
+      :body => "** Strides Itinerary ** Hotel: #{@hotel.name}. Address: #{@hotel.address}. Phone: phone. Check in: date, Check out: date"
       )
 
-    # redirect_to(:back)
+    redirect_to(:back)
   end
 
 end
