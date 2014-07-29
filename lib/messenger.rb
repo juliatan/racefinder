@@ -15,8 +15,8 @@ class Messenger
 
     @client.account.messages.create(
       :from => from,
-      :to => Rails.application.secrets.mobile,
-      # :to => '#{@user.phone}',
+      # :to => Rails.application.secrets.mobile,
+      :to => @user.phone_number,
       :body => "** STRIDES Itinerary ** #{@hotel.name}, #{@hotel.address}, #{@hotel.city}. Check in: #{@arrival}. Check out: #{@departure}"
     )
   end

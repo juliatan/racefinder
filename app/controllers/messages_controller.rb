@@ -3,7 +3,7 @@ require 'messenger'
 class MessagesController < ApplicationController
 
   def create
-    # @user = current_user
+    @user = current_user
     @hotel  = Hotel.find params[:hotel_id]
     @arrival = params[:arrival]
     @departure = params[:departure]
