@@ -1,6 +1,7 @@
 json.array! @city_hotels_selected do |hotel|
   json.name     hotel.name
   json.address  hotel.address
+  json.city     hotel.city
   json.id       hotel.id
   json.hotel_id hotel.hotel_id
   json.lat      hotel.lat
