@@ -30,7 +30,11 @@ html, body {
 	font-weight: lighter;
 	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
 	margin-top: 5px;
-	cursor: 
+}
+
+.map-controls {
+	border-top: dotted 1px #505050;
+	padding-top: 10px;
 }
 
 .map-menu p {
@@ -40,9 +44,4 @@ html, body {
 
 .map-menu p:hover {
 	color: #66cccc;
-}
-
-/* hides the map/satellite button */
-.gmnoprint { 
-	/*display: none;*/
 }
