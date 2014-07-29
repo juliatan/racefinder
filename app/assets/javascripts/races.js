@@ -49,6 +49,14 @@ $(document).ready(function(){
         $('.map-controls').hide();
         $('.map-menu').mouseenter(function() {
           $(this).find('.map-controls').slideToggle(300)
+
+          // prevents text being selected on double click
+          document.ondblclick = function(evt) {
+            if (window.getSelection)
+                window.getSelection().removeAllRanges();
+            else if (document.selection)
+                document.selection.empty();
+          }
         });
         $('.map-menu').mouseleave(function() {
           $(this).find('.map-controls').slideToggle(300)
