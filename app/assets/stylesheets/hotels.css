@@ -35,8 +35,9 @@ table .amenities {
   padding-right: 5px;
 }
 
-.sms {
+.book-hotel {
   background-color: #66cccc;
+  color: white;
   width: 100%;
   text-align: center;
   height: 40px;
@@ -48,27 +49,27 @@ table .amenities {
   padding: 8px;
   border: dotted 1px #88bbbb;
   transition: background-color 0.3s ease;
+  position: relative;
 }
 
-.sms:hover {
+.book-hotel:hover {
   cursor: pointer;
   box-shadow: inset 1 1 10px grey;
   background-color: #009999;
 }
 
-.sms:visited {
+.hotel-booked {
   cursor: pointer;
   box-shadow: inset 1 1 10px grey;
-  background-color: #66FF33;
+  background-color: #99CC33;
 }
 
-.sms a {
+.book-hotel a {
   color: white;
 
 }
 
-.sms a:hover {
-  color: white;
+.book-hotel p:hover, a:-webkit-any-link:hover {
   text-decoration: none;
 }
 

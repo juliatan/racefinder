@@ -63,12 +63,11 @@
       </td>
     </table>
 
-    <% if current_user %>
-      <div class="sms">
+      <!-- <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>"target="_blank" data-method='post'> -->
+        <p class="book-hotel">Book this hotel</p>
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
-        <p><a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>Book this hotel</a></p>
-      </div>
-    <% end %>
+      <!-- </a> -->
+
 
   </div>
 </template>
