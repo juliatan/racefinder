@@ -64,10 +64,10 @@
     </table>
 
     <% if current_user %>
-      <table class="sms">
+      <div class="sms">
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
-        <td><p><a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>SMS me the details</a></p></td>
-      </table>
+        <p><a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>Book this hotel</a></p>
+      </div>
     <% end %>
 
   </div>
