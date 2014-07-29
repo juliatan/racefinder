@@ -45,6 +45,15 @@ $(document).ready(function(){
           }
         });
 
+        // Map controls menu
+        $('.map-controls').hide();
+        $('.map-menu').mouseenter(function() {
+          $(this).find('.map-controls').slideToggle(300)
+        });
+        $('.map-menu').mouseleave(function() {
+          $(this).find('.map-controls').slideToggle(300)
+        });
+
         // to ensure start and finish icons are positioned properly due to their shadows
         var iconOffset = 0.0015;
 

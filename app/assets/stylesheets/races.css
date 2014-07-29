@@ -9,14 +9,11 @@ html, body {
 }
 
 .map-menu {
-	width: 200px;
-	height: 150px;
 	background-color: black;
 	opacity: 0.8;
 	position: fixed;
-	top: 40%;
+	top: 10%;
 	z-index: 1;
 	color: white;
 	padding: 10px 25px;
-	left: -5px;
 }
