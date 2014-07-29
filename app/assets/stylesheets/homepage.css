@@ -64,6 +64,14 @@ menu {
 	letter-spacing: -0.5px;
 }
 
+.container h3 {
+	font-size: 2em;
+	color: white;
+	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
+	font-weight: lighter;
+	letter-spacing: -0.5px;
+}
+
 .container p {
 	/*letter-spacing: -0.2px;*/
 	font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
