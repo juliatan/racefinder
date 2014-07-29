@@ -1,0 +1,7 @@
+.empty_field {
+	border-color: red;
+}
+
+.empty_field ::-webkit-input-placeholder {
+	color: red;
+}
