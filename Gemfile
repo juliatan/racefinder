@@ -33,6 +33,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara-email'
+  gem 'mailcatcher'
 end
 
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
@@ -58,4 +59,3 @@ gem 'bootstrap-datepicker-rails', require: 'bootstrap-datepicker-rails', github:
 gem 'twilio-ruby', '~> 3.11'
 
 gem 'devise'
-gem 'mailcatcher'
