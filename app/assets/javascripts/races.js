@@ -175,6 +175,15 @@ $(document).ready(function(){
                       }
                     };
                     var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+                    
+                    // Book hotel button
+                    $('.book-hotel').click(function() {
+                      $(this).addClass('hotel-booked')
+                      $(this).text('Book this hotel').fadeOut(function(){
+                        $(this).text('Hotel booked. Now back to running...').fadeIn();
+                      });
+                    });
+
                   }, 50)
                 },
                 infoWindow: {

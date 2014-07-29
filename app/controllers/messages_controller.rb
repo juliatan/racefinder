@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     messenger = Messenger.new(@hotel, @user, @arrival, @departure)
     messenger.send_sms!
 
-    redirect_to(:back)
+    redirect_to('/races')
   end
 
 end

@@ -1,3 +1,4 @@
+
 .hotel-info-container {
   padding-left: 15px;
 }
@@ -34,20 +35,45 @@ table .amenities {
   padding-right: 5px;
 }
 
-.sms {
-  background-color: #73ADCF;
+.book-hotel {
+  background-color: #66cccc;
+  color: white;
   width: 100%;
   text-align: center;
-  height: 10px;
-}
-
-.sms a {
-  color: white;
-}
-
-.sms a:hover {
+  height: 40px;
   text-decoration: none;
+  margin: 25px 0px 20px 0px;
+  border-radius: 2px;
+  font-size: 1.3em;
+  font-weight: lighter;
+  padding: 8px;
+  border: dotted 1px #88bbbb;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.book-hotel:hover {
+  cursor: pointer;
+  box-shadow: inset 1 1 10px grey;
+  background-color: #009999;
+}
+
+.hotel-booked {
+  cursor: pointer;
+  box-shadow: inset 1 1 10px grey;
+  background-color: #99CC33;
+}
+
+.book-hotel a {
   color: white;
+}
+
+.book-hotel p:hover, a:-webkit-any-link:hover {
+  text-decoration: none;
+}
+
+.email i, .sms i {
+  margin-right: 3px;
 }
 
 /* - - - IMAGES CAROUSEL - - - */
