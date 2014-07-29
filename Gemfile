@@ -53,3 +53,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-datepicker-rails', require: 'bootstrap-datepicker-rails', github: 'Nerian/bootstrap-datepicker-rails'
+gem 'twilio-ruby', '~> 3.11'

@@ -34,6 +34,20 @@ table .amenities {
   padding-right: 5px;
 }
 
+.sms {
+  background-color: #73ADCF;
+  width: 100%;
+  text-align: center;
+  height: 10px;
+}
+
+.sms a {
+  color: white;
+}
+
+.sms a:hover {
+  text-decoration: none;
+  color: white;
 
 /* - - - IMAGES CAROUSEL - - - */
 

@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 module HotelsHelper
   def star_rating(rating)
     return rating unless rating.respond_to?(:round)
