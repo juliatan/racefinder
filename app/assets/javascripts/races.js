@@ -33,13 +33,7 @@ $(document).ready(function(){
               }
             })
 
-          });
-        
-        // if ($('.route-checkbox').is(':checked')) {
-        //   console.log('checked')
-        // };
-        
-        
+          });        
 
         function locationPreference() {
           if ($("#map").data('preferred-location') == 'Start line') {
@@ -64,7 +58,7 @@ $(document).ready(function(){
         // Map controls menu
         $('.map-controls').hide();
         $('.map-menu').mouseenter(function() {
-          $(this).find('.map-controls').slideToggle(300)
+          $('.map-controls').slideToggle(300)
 
           // prevents text being selected on double click
           document.ondblclick = function(evt) {
@@ -76,7 +70,7 @@ $(document).ready(function(){
         });
 
         $('.map-menu').mouseleave(function() {
-          $(this).find('.map-controls').slideToggle(300)
+          $('.map-controls').slideToggle(300)
         });
 
         $('.map-menu .fa-plus-square').click(function(){
