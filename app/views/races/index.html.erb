@@ -69,7 +69,13 @@
       
     <table>
       <p class="book-hotel">
-        <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post">Book this hotel</a>
+        <% if current_user %>
+          <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post">
+        <% else %>
+          <a href="/users/sign_in">
+        <% end %>
+            Book this hotel
+          </a>
       </p>
       <td class="sms">
         <p>
@@ -86,7 +92,7 @@
       <td class="email">
         <p>
           <% if current_user %>
-            <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post' class='email-itinerary'>
+            <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>&marathon=<%= params[:marathon] %>" data-method='post' class='email-itinerary'>
           <% else %>
             <a href="/users/sign_in" class='email-itinerary'>
           <% end %>
