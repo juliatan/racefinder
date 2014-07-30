@@ -63,9 +63,12 @@
       </td>
     </table>
 
-      <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
+    <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
+      
     <table>
-      <p class="book-hotel">Book this hotel</p>
+      <p class="book-hotel">
+        <a href="http://www.travelnow.com/templates/464791/hotels/{{ hotel_id }}/overview?roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post">Book this hotel</a>
+      </p>
       <td class="sms">
         <p>
           <% if current_user %>
