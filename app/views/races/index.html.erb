@@ -21,7 +21,7 @@
 	data-departure="<%= params[:departure] %>"
 ></div>
 
-<template class="hotel-info">
+<script type='text/template' class="hotel-info">
   <div class="hotel-info-container">
     <div id="slider1_container">
       <div id="slides" u="slides">
@@ -76,7 +76,7 @@
       </td>
       <td class="email">
         <p>
-          <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post'>
+          <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" data-method='post' class='email-itinerary'>
             <i class="fa fa-envelope"></i> 
             Email me the itinerary
           </a>
@@ -85,4 +85,4 @@
     </table>
         <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
   </div>
-</template>
+</script>
