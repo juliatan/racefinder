@@ -28,9 +28,9 @@ header {
 
 header img {
   position: relative;
-  top: 10px;
-  left: 80px;
-  height: 54%;
+  top: 8px;
+  left: 65px;
+  height: 70%;
 }
 
 .sign-out, .sign-in, .sign-up {
