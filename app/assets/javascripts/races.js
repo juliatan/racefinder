@@ -149,12 +149,23 @@ $(document).ready(function(){
                 distance += legs[i].distance.value;
               }
 
+              // calculating distance and duration of walking from hotel to start line
               var minutesH = time/60;
               var minutes = Math.round(minutesH);
               var metres = distance/1000;
               var km = Math.round(metres*100)/100;
               hotel.minutes = minutes;
               hotel.km = km;
+
+              // calculating time to leave the hotel at
+              var raceStart = new Date(2015, 04, 15, 8, 0, 0, 0) // assuming 8am starting time for all races
+              var raceStartMilliseconds = raceStart.getTime();
+              var minutesMilliseconds = minutes * 60000;
+              var leaveAtMillisecond = raceStartMilliseconds - minutesMilliseconds;
+              var leaveAtDate = new Date(leaveAtMillisecond);
+              var leaveAtHours = leaveAtDate.getHours();
+              var leaveAtMinutes = leaveAtDate.getMinutes();
+              hotel.leaveAtTime = leaveAtHours + ":" + leaveAtMinutes // leave the hotel at this time
 
               // for each hotel adds a marker to the map, filtered by user selection
               map.addMarker({
