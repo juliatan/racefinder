@@ -92,7 +92,7 @@ table .amenities {
   position: absolute;
   cursor: pointer;
   display: block;
-  background: url(a21.png) no-repeat;
+  background: url(/a21.png) no-repeat;
   overflow:hidden;
   width: 55px;
   height: 55px;
