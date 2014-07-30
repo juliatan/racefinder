@@ -4,12 +4,12 @@
 
 		<h2>Sign in</h2>
 
-		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, autofocus: true %></div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div><%= f.label :email%><br />
+      <%= f.email_field :email, autofocus: true, class: 'signin-email' %></div>
 
-		  <div><%= f.label :password %><br />
-		    <%= f.password_field :password, autocomplete: "off" %></div>
+      <div><%= f.label :password%><br />
+      <%= f.password_field :password, autocomplete: "off", class: 'signin-password' %></div>
 
 		  <% if devise_mapping.rememberable? -%>
 		    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
@@ -24,4 +24,35 @@
   </div>
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script src="/assets/notify.js"></script>
 
+<script>
+$(document).ready(function(){
+
+      $('.signin-button').click(function(event){
+        var email = document.forms["new_user"]["user_email"].value;
+        var password = document.forms["new_user"]["user_password"].value;
+
+        // a popup appears if the name is empty
+        if (email == "") {
+          event.preventDefault();
+          $('.signin-email').notify(
+            "Please enter your email", 
+            { position:"right" }
+          );
+        }
+
+        // a popup appears if the password is empty
+        if (password == "") {
+          event.preventDefault();
+          $('.signin-password').notify(
+            "Please enter your password", 
+            { position:"right" }
+          );
+        }
+
+      }); // $('.signup-button').click(function(event){
+
+  }) // document ready
+</script>
