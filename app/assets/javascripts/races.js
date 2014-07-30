@@ -150,7 +150,7 @@ $(document).ready(function(){
               }
 
               var minutesH = time/60;
-              var minutes = Math.round(minutesH*100)/100;
+              var minutes = Math.round(minutesH);
               var metres = distance/1000;
               var km = Math.round(metres*100)/100;
               hotel.minutes = minutes;
@@ -180,7 +180,7 @@ $(document).ready(function(){
                     $('.book-hotel').click(function() {
                       $(this).addClass('hotel-booked')
                       $(this).text('Book this hotel').fadeOut(function(){
-                        $(this).text('Hotel booked. Now back to running...').fadeIn();
+                        $(this).text('We are taking you to the booking page...').fadeIn();
                       });
                     });
 

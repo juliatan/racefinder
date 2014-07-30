@@ -78,6 +78,7 @@ def create_hotel_with(hotel, latitude, longitude, race_id)
   rating = hotel["hotelRating"]
   tripadvisor_rating = hotel["tripAdvisorRating"]
   city = hotel["city"]
+  tripadvisor_gif = hotel["tripAdvisorRatingUrl"]
 
   hotel_info_url = "https://api.eancdn.com/ean-services/rs/hotel/v3/info?cid=464790&minorRev=99&apiKey=2gywypsv9qv5w4w4wk57jehm&locale=en_US&currencyCode=GBP&hotelId=" + hotel_id.to_s
   hotel_data = open(hotel_info_url).read
@@ -126,5 +127,5 @@ def create_hotel_with(hotel, latitude, longitude, race_id)
   breakfast = breakfast_included?
   # # end amenities logic
 
-  Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, image1: @hotel_images[0], image2: @hotel_images[1], image3: @hotel_images[2], image4: @hotel_images[3], race_id: race_id, amenity_mask: amenity_mask, gym: gym, wifi: wifi, breakfast: breakfast)
+  Hotel.create(hotel_id: hotel_id, name: name, address: address, lat: lat, long: long, price: price, rating: rating, tripadvisor_rating: tripadvisor_rating, ref_lat: latitude, ref_long: longitude, city: city, image1: @hotel_images[0], image2: @hotel_images[1], image3: @hotel_images[2], image4: @hotel_images[3], race_id: race_id, amenity_mask: amenity_mask, gym: gym, wifi: wifi, breakfast: breakfast, tripadvisor_gif: tripadvisor_gif)
 end
