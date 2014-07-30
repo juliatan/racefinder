@@ -3,6 +3,8 @@
   <div class="user-container">
 
     <h2>Sign up</h2>
+    <p><%= notice %></p>
+    <p><%= alert %></p>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
