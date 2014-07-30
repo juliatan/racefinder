@@ -15,7 +15,10 @@ $(document).ready(function(){
     todayHighlight: true,
     // format: "dd M yy",
     startDate: 'today',
+    todayBtn: true
   });
+
+  // $('.input-daterange').datepicker().children('input.arrival').val(arrivalString);
 
   // extract to database?
   var marathonStartDates = {
@@ -49,6 +52,11 @@ $(document).ready(function(){
     $('.input-daterange').datepicker().children('input.departure').val(departureString); // amend value of departure date automatically
     
     // $('.input-daterange').attr('data-date', startDate) - this might be the code used to amend calender?
+
+    // Update the calendar to match the marathon selected
+    $('.input-daterange').datepicker().children('input.arrival').datepicker('setDate', arrivalDateObject);
+    console.log(arrivalDateObject)
+    $('.input-daterange').datepicker().children('input.departure').datepicker('setDate', departureDateObject);
   });
 
 
