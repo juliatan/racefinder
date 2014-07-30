@@ -1,11 +1,152 @@
-<p>Dear <%= @user.name %>,</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
-<p>Here is your STRIDES itinerary</p>
-<h2><%= @hotel.name %></h2>
+		body {
+			font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Sans-Serif";
+			padding: 0;
+			margin: 0;
+		}
 
-<p><%= @hotel.address %>, <%= @hotel.city %></p>
-<p>Check in: <%= @arrival %></p>
-<p>Check out: <%= @departure %></p>
+		header {
+			background-color: black;
+			width: 100%; 
+			height: 60px;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
 
-<p>Wishing you an injury free training cycle!</p>
-<p>The Strides Team</p>
+		header img {
+			margin-top: 10px;
+			height: 70%;
+		}
+
+	  .mailer-container {
+	  	width: 100%;
+	  	/*background: red;*/
+	  	margin: 10px;
+	  	padding: 0;
+	  }
+
+	  .mailer-content {
+	  	width: 70%;
+	  	margin-left: auto;
+	  	margin-right: auto;
+	  	box-shadow: 0 0 7px #888888;
+	  }
+
+	  .mailer-content p {
+	  	margin-bottom: 0px;
+	  	margin-left: 10px;
+	  	margin-right: 10px;
+	  	font-weight: lighter;
+	  }
+
+	  .mailer-content h2 {
+	  	margin-left: 10px;
+	  	margin-right: 10px;
+	  	font-weight: lighter;
+  		padding-bottom: 10px;
+  		border-bottom: dotted 1px lightgrey;
+	  }
+	  .mailer-content h1 {
+	  	margin-left: 10px;
+	  	margin-right: 10px;
+	  	font-weight: lighter;
+	  }
+
+	  .bigger {
+	  	font-size: 1.8em;
+	  	margin-right: 2px;
+	  }
+
+	  .dear {
+			padding: 10px 0 0 0;
+
+	  }
+
+	  .sign {
+	  	font-style: italic;
+	  }
+
+	  .last {
+	  	padding: 0 0 10px 0;
+	  }
+	  	.last a {
+	  		color: grey;
+	  	}
+	  	.last a:hover {
+	  		color: black;
+	  		text-decoration: none;
+	  	}
+
+	  table {
+	  	width: 100%;
+	  	border: 1px;
+	  	margin-top: 20px;
+	  }
+
+	  td {
+	  	vertical-align: top;
+	  	padding: 0;
+	  }
+
+	  td h2 {
+	  	margin: 0;
+	  	padding: 0;
+	  }
+
+	  .td-img {
+	  	text-align: center;
+	  }
+
+	  .stars {
+	  	color: #FFCC00;
+	  }
+	</style>
+</head>
+<body>
+		<header>
+			<a href='http://strides.herokuapp.com' target='_blank'>
+				<img src="http://strides.herokuapp.com/assets/strides_logo_2-70ed0bdd10c4ddf4b431f669a6a4fd56.png" alt="" class='header-img'>
+			</a>
+		</header>
+		<div class='mailer-container'>
+			<div class='mailer-content'>
+				<p class='dear'>Dear <%= @user.name %>, you are running the...</p>
+
+				<p><span class='bigger'><%= @marathon %> Marathon</span> and you are booked into the</p>
+				<table>
+						<td>
+							<h2><%= @hotel.name %></h2>
+								<table>
+									<tr>	
+										<td>
+											<p><%= @hotel.address %>, <%= @hotel.city %></p>
+											<p><b>Check in</b> <%= @arrival %></p>
+											<p><b>Check out</b> <%= @departure %></p>
+										</td>
+										<td>
+											<p class='stars'><%= @hotel.rating %></p>
+										</td>
+									</tr>
+								</table>
+						</td>
+						<td class='td-img'>
+							<img src='<%= @hotel.image1 %>'>
+						</td>
+				</table>
+
+				<p>Wishing you an injury free training cycle!</p>
+				<p class='sign'>The Strides Team</p>
+				<p class='last'><a href='http://strides.herokuapp.com' target='_blank'>strides.herokuapp.com</a></p>
+			</div>
+		</div>
+	
+</body>
+</html>

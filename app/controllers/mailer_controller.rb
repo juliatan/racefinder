@@ -5,9 +5,9 @@ class MailerController < ApplicationController
     @hotel  = Hotel.find params[:hotel_id]
     @arrival = params[:arrival]
     @departure = params[:departure]
+    @marathon = params[:marathon]
 
-    # extracted Twilio code to lib directory to keep controller skinny
-    Mailer.confirmation(@hotel, @user, @arrival, @departure).deliver
+    Mailer.confirmation(@hotel, @user, @arrival, @departure, @marathon).deliver
     redirect_to(:back)
   end
 
