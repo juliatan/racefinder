@@ -17,4 +17,5 @@
 //= require bootstrap-datepicker/core
 //= require mustache
 //= require jssor.slider.mini
+//= require notify
 //= require_tree .
