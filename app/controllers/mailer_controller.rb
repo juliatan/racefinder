@@ -8,7 +8,6 @@ class MailerController < ApplicationController
 
     # extracted Twilio code to lib directory to keep controller skinny
     Mailer.confirmation(@hotel, @user, @arrival, @departure).deliver
-
     redirect_to(:back)
   end
 

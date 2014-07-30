@@ -20,7 +20,7 @@ describe 'Homepage' do
     select '200', from: 'price'
     fill_in 'Arrival', with: '08/01/2014'
     fill_in 'Departure', with: '08/05/2014'
-    click_button 'Search'
+    click_button 'search'
     sleep 1
     expect(page.evaluate_script("map.getCenter().lat()")).to be_within(0.05).of 51.477805
     expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of -0.001416
@@ -33,7 +33,7 @@ describe 'Homepage' do
     select '200', from: 'price'
     fill_in 'Arrival', with: '08/01/2014'
     fill_in 'Departure', with: '08/05/2014'
-    click_button 'Search'
+    click_button 'search'
   	sleep 1
   	expect(page.evaluate_script("map.getCenter().lat()")).to be_within(0.05).of 52.51622
     expect(page.evaluate_script("map.getCenter().lng()")).to be_within(0.05).of 13.37573
@@ -52,9 +52,13 @@ describe 'Homepage' do
 
     it 'user can fill in number of nights', js: true do
       Hotel.create!(race_id: 3, name: 'Hotel1', price: 150, lat: 52.50927, long: 13.37374, ref_lat: 52.51415, ref_long: 13.36368)
-      visit '/races?utf8=%E2%9C%93&marathon=Berlin&preferred_location=Start+line&price=200&arrival=08%2F01%2F2014&departure=08%2F05%2F2014&commit=Search'
+      enter_race_details
+
       sleep 1
-      expect(page.evaluate_script("window.map.markers[2].infoWindow.content")).to have_content '4 nights'
+      page.execute_script("google.maps.event.trigger(window.map.markers[2], 'click');")
+      within '.hotel-info-container' do
+        expect(page).to have_content '4 nights'
+      end
     end
   end
 
