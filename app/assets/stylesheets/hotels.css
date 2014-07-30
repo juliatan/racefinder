@@ -64,7 +64,7 @@ table .amenities {
   background-color: #99CC33;
 }
 
-.book-hotel a {
+.book-hotel a, .book-hotel a:hover {
   color: white;
 }
 
