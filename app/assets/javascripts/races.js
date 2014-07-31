@@ -177,7 +177,10 @@ $(document).ready(function(){
                 // hotel images carousel
                 click: function() {
                   var thisMarker = this // the clicked marker for mustache
+
+
                   window.setTimeout(function(){  
+                  
                     getHotel(thisMarker)             
                     var options = {
                       $ArrowNavigatorOptions: {
@@ -193,6 +196,19 @@ $(document).ready(function(){
                       $(this).text('Book this hotel').fadeOut(function(){
                         $(this).text('We are taking you to the booking page...').fadeIn();
                       });
+                    });
+
+                    $('.sms-sent').hide()
+
+                    $('.sms-link').click(function(e){
+                      e.preventDefault();
+                      $.post($('a.sms-link').attr('href'));
+                      // $('.sms-link span').text('SMS sent');
+                      // $('a.sms-link').attr('href')
+                      $('a.sms-link').remove();
+                      $('.sms-sent').show();
+                      // $('a.sms-link').bind('click', false);
+                      // console.log($('.sms-link span').text('SMS sent'));
                     });
 
                   }, 50)
