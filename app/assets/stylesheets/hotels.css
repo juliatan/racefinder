@@ -59,9 +59,22 @@ table .amenities {
 }
 
 .hotel-booked {
-  cursor: pointer;
+  cursor: text;
   box-shadow: inset 1 1 10px grey;
   background-color: #99CC33;
+
+  color: white;
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  text-decoration: none;
+  margin: 25px 0px 20px 0px;
+  border-radius: 2px;
+  font-size: 1.3em;
+  font-weight: lighter;
+  padding: 8px;
+  border: dotted 1px #88bbbb;
+  position: relative;
 }
 
 .book-hotel a, .book-hotel a:hover {
