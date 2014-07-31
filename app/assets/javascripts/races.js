@@ -199,16 +199,19 @@ $(document).ready(function(){
                     });
 
                     $('.sms-sent').hide()
-
                     $('.sms-link').click(function(e){
                       e.preventDefault();
                       $.post($('a.sms-link').attr('href'));
-                      // $('.sms-link span').text('SMS sent');
-                      // $('a.sms-link').attr('href')
                       $('a.sms-link').remove();
                       $('.sms-sent').show();
-                      // $('a.sms-link').bind('click', false);
-                      // console.log($('.sms-link span').text('SMS sent'));
+                    });
+
+                    $('.email-sent').hide()
+                    $('.email-itinerary').click(function(e){
+                      e.preventDefault();
+                      $.post($('a.email-itinerary').attr('href'));
+                      $('a.email-itinerary').remove();
+                      $('.email-sent').show();
                     });
 
                   }, 50)
