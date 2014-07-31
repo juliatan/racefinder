@@ -193,6 +193,7 @@ $(document).ready(function(){
                     // Book hotel button
                     $('.book-hotel').click(function() {
                       $(this).addClass('hotel-booked')
+                      $(this).removeClass('book-hotel')
                       $(this).text('Book this hotel').fadeOut(function(){
                         $(this).text('We are taking you to the booking page...').fadeIn();
                       });
