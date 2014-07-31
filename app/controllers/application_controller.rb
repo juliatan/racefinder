@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.for(:sign_up) << :name 
   	devise_parameter_sanitizer.for(:sign_up) << :phone_number
   end
+
+  # this is to overwrite the devise default for redirect path after sign in
+  def after_sign_in_path_for(resource)
+  	stored_location_for(resource) || root_url
+  end
 end

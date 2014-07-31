@@ -201,17 +201,23 @@ $(document).ready(function(){
                     $('.sms-sent').hide()
                     $('.sms-link').click(function(e){
                       e.preventDefault();
-                      $.post($('a.sms-link').attr('href'));
-                      $('a.sms-link').remove();
-                      $('.sms-sent').show();
+                      $.post($('a.sms-link').attr('href'), function(){
+                        $('a.sms-link').remove();
+                        $('.sms-sent').show();
+                      }).error(function(){
+                        window.location = '/users/sign_in';
+                      });
                     });
 
                     $('.email-sent').hide()
                     $('.email-itinerary').click(function(e){
                       e.preventDefault();
-                      $.post($('a.email-itinerary').attr('href'));
-                      $('a.email-itinerary').remove();
-                      $('.email-sent').show();
+                      $.post($('a.email-itinerary').attr('href'), function(){
+                        $('a.email-itinerary').remove();
+                        $('.email-sent').show();
+                      }).error(function(){
+                        window.location = '/users/sign_in';
+                      });
                     });
 
                   }, 50)

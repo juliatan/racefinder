@@ -79,26 +79,17 @@
       </p>
         <td class="sms">
           <p>
-            <% if current_user %>
-              <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class="sms-link">
-              <!-- removed data-method="post" as we transfered it to an AJAX call in JS -->
-            <% else %>
-              <a href="/users/sign_in" style="margin-right:15px;">
-            <% end %>
-                <i class="fa fa-mobile-phone fa-lg"></i>
-                <span>SMS me the details</span>
-              </a>
-              <span class="sms-sent">SMS sent</span>
+            <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class="sms-link">
+            <!-- removed data-method="post" as we transfered it to an AJAX call in JS -->
+              <i class="fa fa-mobile-phone fa-lg"></i>
+              SMS me the details
+            </a>
+            <span class="sms-sent">SMS sent</span>
           </p>
         </td>
         <td class="email">
           <p>
-            <% if current_user %>
-              <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class='email-itinerary'>
-              <!-- removed data-method="post" as we transfered it to an AJAX call in JS -->
-            <% else %>
-              <a href="/users/sign_in">
-            <% end %>
+            <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class='email-itinerary'>
               <i class="fa fa-envelope"></i> 
               Email me the itinerary
             </a>
