@@ -70,7 +70,7 @@
     <table>
       <p class="book-hotel">
         <% if current_user %>
-          <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post">
+          <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post" target="_blank">
         <% else %>
           <a href="/users/sign_in">
         <% end %>
@@ -94,10 +94,10 @@
         <td class="email">
           <p>
             <% if current_user %>
-              <!-- removed data-method="post" as we transfered it to an AJAX call in JS -->
               <a href="/hotels/{{ id }}/mailer?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class='email-itinerary'>
+              <!-- removed data-method="post" as we transfered it to an AJAX call in JS -->
             <% else %>
-              <a href="/users/sign_in" class='email-itinerary'>
+              <a href="/users/sign_in">
             <% end %>
               <i class="fa fa-envelope"></i> 
               Email me the itinerary
