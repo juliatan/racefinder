@@ -87,6 +87,21 @@ table .amenities {
 
 .email i, .sms i {
   margin-right: 3px;
+  margin-left: 10px;
+}
+
+.sms, .email {
+  padding-right: 10px;
+  width: 207px;
+}
+
+.sms {
+  text-align: right;
+}
+
+.email-sent, .sms-sent {
+  margin-right: 3px;
+  color: #99CC33;
 }
 
 /* - - - IMAGES CAROUSEL - - - */

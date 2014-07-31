@@ -68,15 +68,15 @@
     <!-- cannot use rails link_to helper because this is a template and it will be the same for each hotel -->
       
     <table>
-      <p class="book-hotel">
-        <% if current_user %>
-          <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post" target="_blank">
-        <% else %>
-          <a href="/users/sign_in">
-        <% end %>
+      <% if current_user %>
+        <a href="http://www.travelnow.com/templates/464671/hotels/{{ hotel_id }}/overview?apiKey=rthjbmnexf9e6z7863ru5w9n&roomsCount=1&rooms[0].adultsCount=1&checkin=<%= params[:arrival] %>&checkout=<%= params[:departure] %>&currency=GBP&currencySymbol=%C2%A3&lang=en" data-method="post" target="_blank">
+      <% else %>
+        <a href="/users/sign_in">
+      <% end %>
+          <p class="book-hotel">
             Book this hotel
-          </a>
-      </p>
+          </p>
+        </a>
         <td class="sms">
           <p>
             <a href="/hotels/{{ id }}/messages?arrival=<%= params[:arrival] %>&departure=<%= params[:departure] %>" class="sms-link">
@@ -84,7 +84,7 @@
               <i class="fa fa-mobile-phone fa-lg"></i>
               SMS me the details
             </a>
-            <span class="sms-sent">SMS sent</span>
+            <span class="sms-sent"><i class="fa fa-check-square-o"></i>SMS sent</span>
           </p>
         </td>
         <td class="email">
@@ -93,7 +93,7 @@
               <i class="fa fa-envelope"></i> 
               Email me the itinerary
             </a>
-            <span class="email-sent">Email sent</span>
+            <span class="email-sent"><i class="fa fa-check-square-o"></i>Email sent</span>
           </p>
         </td>
     </table>
