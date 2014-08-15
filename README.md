@@ -14,6 +14,8 @@ over the previous 10 weeks. We additionally gained experience from seeing a proj
 through from the planning stage, all the way to completion and presentation in front
 of an audience of 80 people.
 
+![](app/assets/images/screenshot.png)
+
 Objectives of this project
 --------------------------
 - Create a Ruby on Rails project from scratch
