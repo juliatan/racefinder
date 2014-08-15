@@ -54,6 +54,8 @@ Technologies used
 - Heroku
 - Devise
 - Twilio
+- Mustache.js
+- Mailcatcher
 
 Potential next steps
 --------------------
@@ -67,7 +69,7 @@ How to run the program
 ```sh
 git clone https://github.com/juliatan/racefinder
 cd racefinder
-rails s
+bin/rails s
 ```
 
 Visit http://localhost:3000 in your browser.
