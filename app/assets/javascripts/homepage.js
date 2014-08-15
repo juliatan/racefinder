@@ -13,7 +13,6 @@ $(document).ready(function(){
   // datepicker rails
   $('.input-daterange').datepicker({
     todayHighlight: true,
-    // format: "dd M yy",
     startDate: 'today',
     todayBtn: true
   });
@@ -33,7 +32,6 @@ $(document).ready(function(){
     var raceSelection = $('#marathon option:selected').text();
     var startDate = new Date(marathonStartDates[raceSelection]); // creates Date object from string
     
-    // think about refactoring this
     var arrivalDateObject = new Date(startDate.getTime() - 1000*60*60*24); // default is one day prior to marathon start date
     var arrivalDate = arrivalDateObject.getDate();
     var arrivalMonth = arrivalDateObject.getMonth() + 1; // .getMonth() method starts from Jan = 0
@@ -59,7 +57,6 @@ $(document).ready(function(){
     $('.input-daterange').datepicker().children('input.departure').datepicker('setDate', departureDateObject);
   });
 
-
   // to add £ sign to max budget dropdown menu
   $('.price option').slice(1,4).prepend('£');
 
@@ -75,16 +72,4 @@ $(document).ready(function(){
       event.preventDefault();
     }
   });
-
-  // function validateForm() {
-  //   var x = document.forms["userOptions"]["marathon"].value;
-  //   if (x == "") {
-  //       // alert("First name must be filled out");
-
-  //       return false;
-        
-  //   }
-  // }
-
-
 });
